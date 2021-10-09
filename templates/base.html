@@ -49,8 +49,26 @@
         <title>Dromcondra Craftshop {% block extra_title %}{% endblock %)</title>
     </head>
     <body>
-        
+        <header class="container-fluid dixed-top">
 
+        </header>
+
+        <!-- Message container for displaying user messages -->
+        {% if messages %}
+            <div class="message-container"></div>
+        {% endif %}
+
+        <!-- Custom header for certain app pages -->
+        {% block page_header %}
+        {% endblock %}
+        
+        <!-- Main HTML page content block -->
+        {% block content %}
+        {% endblock %}
+
+        <!-- Block for post load JS files when required -->
+        {% block postload_js %}
+        {% endblock %}
 
     </body>
 </html>
