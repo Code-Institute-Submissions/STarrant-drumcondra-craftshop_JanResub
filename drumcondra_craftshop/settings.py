@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    # home app - Dromcondra Craftshop Project Specific
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +63,12 @@ ROOT_URLCONF = 'drumcondra_craftshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            # Root templates directory
+            os.path.join(BASE_DIR, 'templates'),
+            # Custom allauth directory
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
