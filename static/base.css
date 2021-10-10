@@ -22,8 +22,13 @@ html {
 }
 
 * {
-    color: #293132;
+    /*color: #293132;*/
+    color: red;  /* TESTHIGH */
     font-family: 'Roboto', sans-serif;
+}
+
+.text-black {
+    color: #000 !important;
 }
 
 .hr-light {
@@ -35,6 +40,27 @@ html {
     border-bottom: 3px solid #8C5383;
     box-shadow: 1px 2px 2px rgba(0,0,0,0.6);
 }
+
+/*Credit to Alessandro Incarnati for idea of doing multicolored hr. https://stackoverflow.com/questions/29733780/how-to-style-hr-to-have-multiple-colors*/
+/*  Copied Code: span { display:block; width:10%; float:left; height:5px;}  .line{width:100%;}  */
+.hr_span{
+    display:    block;
+    width:      20%; /* 20% = 100% width / 5 colors. */
+    float:      left;
+    height:     10px;
+}
+
+.hr_div{
+    width:100%;
+    padding: 0;
+    margin:0;
+}
+
+.bg_color1 {background-color:    #92374D;}    /* Color 1 - Solid Pink */
+.bg_color2 {background-color:    #8C5383;}    /* Color 2 - Rasmic Berry*/
+.bg_color3 {background-color:    #4A5899;}    /* Color 3 - Liberty*/
+.bg_color4 {background-color:    #559CAD;}    /* Color 4 - Pacific Blue*/
+.bg_color5 {background-color:    #C1B2AB;}    /* Color 5 - Pale Silver*/
 
 /* General Button Styling */
 .btn-dc-standard {
