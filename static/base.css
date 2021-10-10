@@ -198,3 +198,25 @@ nav a {
    
 
 }
+
+/* Code Credit:  Chris Z. (https://github.com/ckz8780) */
+/* Widen BS containers to utilize larger screen sizes. */
+@media only screen and (min-width: 1200px) {
+    .container {
+        max-width: 80%;
+    }
+}
+
+@media only screen and (min-width: 991.98px) {
+   .fixed-top-desktop-only {
+       position: fixed;
+       top: 0;
+       right: 0;
+       left: 0;
+       z-index: 1000;
+   }
+
+   .header-container {
+       padding-top: 164;     /*  TEST HIGH - Update here when header height is calcalated correctly.*/
+   }
+}
