@@ -144,7 +144,70 @@
         <!-- Main HTML page content block -->
         {% block content %}
         {% endblock %}
-
+        <footer class="container-fluid px-0 pt-3 pb-0" id="footer-main-section">
+            <div class="row p-3 mt-3">
+                <!-- Back to top -->
+                <div class="col-12 footer-column">Back to top link</div>
+                <!-- About us -->
+                <div class="col-md-8 footer-column">
+                    <h4 class="footer-heading">
+                        <i class="footer-icon fas fa-users pr-2"></i>
+                        About Us
+                    </h4>
+                    <p class="footer-text">
+                        The Dromcondra Craftshop is located right in the middle of Dromcondra village, one of North Dublin's most iconic locations. Over the past five years, we've built up great relationships with some of the finest local creators.
+                    </p>
+                    <p class="footer-text">
+                        We pride ourselves on bringing affordable, quality produce from local, national and international artisans and creators to you. Check out our online store - we deliver internationally. Or if you're in the area, why not drop in! We'd love to see you. :)
+                    </p>
+                </div>
+                <!-- Contact Details -->
+                <div class="col-md-4 footer-column">
+                    <h4 class="footer-heading">
+                        <a href="#" class="footer-anchor" aria-label="Contact us">   <!-- TESTHIGH - Add link to contact form -->
+                            <i class="footer-heading fas fa-comment-dots pr-1"></i>
+                            Contact
+                        </a>
+                    </h4>
+                    <ul class="list-group footer-list-group p-0 m-0">
+                    <!-- Footer Business Address -->
+                        <li class="list-group-item footer-list-group-item p-0 m-0">
+                            <p class="footer-text p-0 m-0"><i class="footer-icon fas fa-map-pin pl-1 pr-2"></i>Unit 2B,</p>
+                            <p class="footer-text pl-4 py-0 m-0">ABC Dromcondra,</p>
+                            <p class="footer-text pl-4 py-0 m-0">Dromcondra Rd. Lower,</p>
+                            <p class="footer-text pl-4 py-0 m-0">Dublin 9,</p>
+                            <p class="footer-text pl-4 py-0 m-0">Ireland.</p>
+                            <p class="footer-text pl-4 py-0 m-0">D09 1234.</p>
+                        </li>
+                        <!-- Footer Contact Telephone Number -->
+                        <li class="list-group-item footer-list-group-item p-0 m-0">
+                            <i class="footer-icon fas fa-phone px-1"></i>
+                            +353 (0)1 123 4567
+                            <br>
+                        </li>
+                        <!-- Footer Email Address -->    
+                        <li class="list-group-item footer-list-group-item p-0 m-0">
+                            <a href="mailto:info@dromcondracraftshop.com" class="footer-anchor" aria-label="Email us">
+                                <i class="footer-icon fas fa-envelope px-1"></i>    
+                                info@dromcondracraftstore.com
+                            </a>
+                            <br>
+                        </li>
+                        <!-- Footer Web URL -->    
+                        <li class="list-group-item footer-list-group-item p-0 m-0">
+                            <a href="#" class="footer-anchor" aria-label="Dromcondra Craftshop Webpage URL">  <!-- TESTHIGH - Add link to website -->
+                                <i class="footer-icon fas fa-globe px-1"></i>
+                                www.dromcondracraftshop.com
+                            </a>
+                            <br>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12" id="footer-disclaimer">
+                    <p class="text-center pt-5">Website for Educational Purposes Only.</p>
+                </div>
+            </div>
+        </footer>
         <!-- Block for post load JS files when required -->
         {% block postload_js %}
         {% endblock %}
