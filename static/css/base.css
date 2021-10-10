@@ -268,6 +268,6 @@ nav a {
    }
 
    .header-container {
-       padding-top: 164;     /*  TEST HIGH - Update here when header height is calcalated correctly.*/
+       padding-top: 164px;     /*  TEST HIGH - Update here when header height is calcalated correctly.*/
    }
 }
