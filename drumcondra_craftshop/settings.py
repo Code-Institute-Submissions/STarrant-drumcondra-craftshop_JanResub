@@ -44,8 +44,10 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    # home app - Dromcondra Craftshop Project Specific
+    # home app - Dromcondra Craftshop Home App
     'home',
+    # products app - Dromcondra Craftshop Products App
+    'products',
 ]
 
 MIDDLEWARE = [
