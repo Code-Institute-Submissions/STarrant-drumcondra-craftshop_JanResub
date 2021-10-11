@@ -1,3 +1,5 @@
+<!-- Code Credit:  Starting code from Chris Z (https://github.com/ckz8780) -->
+
 <ul>
     <li class="list-inline-item">
       <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -6,6 +8,7 @@
               <p class="my-0">Search</p>
           </div>
       </a>
+      <!-- Search Box -->
       <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
           <form class="form" method="GET" action="">
               <div class="input-group w-100">
@@ -13,7 +16,7 @@
                   <div class="input-group-append">
                       <button class="form-control form-control btn btn-black border border-black rounded-0" type="submit">
                           <span class="icon">
-                              <i class="fas fa-search"></i>
+                              <i class="bi bi-search"></i>
                           </span>
                       </button>
                   </div>
@@ -22,12 +25,14 @@
       </div>
   </li>
   <li class="list-inline-item dropdown">
+      <!-- User Account Dropdown Button -->
       <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div class="text-center">
-              <div><i class="fas fa-user fa-lg"></i></div>
+              <div><i class="bi bi-person-fill"></i></div>
               <p class="my-0">My Account</p>
           </div>
       </a>
+      <!-- User Account Dropdown Menu -->
       <div class="dropdown-menu border-0" aria-labelledby="user-options">
           {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
@@ -41,10 +46,11 @@
           {% endif %}
       </div>
   </li>
+
   <li class="list-inline-item">
       <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="">
           <div class="text-center">
-              <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+              <div><i class="bi bi-basket-fill"></i></div>
               <p class="my-0">
                   {% if grand_total %}
                       ${{ grand_total|floatformat:2 }}
