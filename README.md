@@ -241,7 +241,7 @@ Many bugs were encountered during the development of the project - all admittedl
 
 ### Development Bugs
 
-* Deployment Bug 1
+* BugFix:  Issue with AllAuth password authentication found. Error found in Settings.py AUTH_PASSWORD_VALIDATORS. Important note here is to ensure the correct version of Allauth is installed. (Currently 0.43.0.) 
 
 ### Testing Bugs
 
