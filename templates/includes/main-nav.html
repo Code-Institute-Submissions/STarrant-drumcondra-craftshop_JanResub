@@ -19,11 +19,11 @@
                 Craft Kits
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="craftkit-link">
-                <a href="" class="dropdown-item">Card Making</a>
-                <a href="" class="dropdown-item">Jewellery Making</a>
-                <a href="" class="dropdown-item">Crochet</a>
-                <a href="" class="dropdown-item">Knitting</a>
-                <a href="" class="dropdown-item">Sewing</a>
+                <a href="{% url 'products' %}?category=kit_card_making" class="dropdown-item">Card Making</a>
+                <a href="{% url 'products' %}?category=jewellery_making" class="dropdown-item">Jewellery Making</a>
+                <a href="{% url 'products' %}?category=crochet" class="dropdown-item">Crochet</a>
+                <a href="{% url 'products' %}?category=kit_knitting" class="dropdown-item">Knitting</a>
+                <a href="{% url 'products' %}?category=kit_sewing" class="dropdown-item">Sewing</a>
             </div>
         </li>
 
@@ -32,10 +32,10 @@
                 Homeware
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <a href="" class="dropdown-item">Candles</a>
-                <a href="" class="dropdown-item">Wood Turning</a>
-                <a href="" class="dropdown-item">Pottery</a>
-                <a href="" class="dropdown-item">Ceramics</a>
+                <a href="{% url 'products' %}?category=candles" class="dropdown-item">Candles</a>
+                <a href="{% url 'products' %}?category=wood_turning" class="dropdown-item">Wood Turning</a>
+                <a href="{% url 'products' %}?category=pottery" class="dropdown-item">Pottery</a>
+                <a href="{% url 'products' %}?category=ceramics" class="dropdown-item">Ceramics</a>
             </div>
         </li>
 
@@ -44,10 +44,10 @@
                 Handmade Gifts
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="handmadegifts-link">
-                <a href="" class="dropdown-item">Greeting Cards</a>
-                <a href="" class="dropdown-item">Jewellery</a>
-                <a href="" class="dropdown-item">Fragrances</a>
-                <a href="" class="dropdown-item">Children's Toys</a>
+                <a href="{% url 'products' %}?category=greeting_cards" class="dropdown-item">Greeting Cards</a>
+                <a href="{% url 'products' %}?category=jewellery" class="dropdown-item">Jewellery</a>
+                <a href="{% url 'products' %}?category=fragrances" class="dropdown-item">Fragrances</a>
+                <a href="{% url 'products' %}?category=toys" class="dropdown-item">Children's Toys</a>
             </div>
         </li>
 
