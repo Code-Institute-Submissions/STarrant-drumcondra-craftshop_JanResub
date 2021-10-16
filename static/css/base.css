@@ -12,6 +12,12 @@ font-family: 'Roboto Condensed', sans-serif; */
 /* 4___ 559CAD Pacific Blue  */
 /* 5___ C1B2AB Pale Silver */
 
+/* Z-Indices Used */
+/* .background-overlay             -1   */
+/* .fixed-top-desktop-only       1000   */
+/* .header                      99999   */
+
+
 
 /* Special Paddings Margins Text Rules */
 
@@ -29,6 +35,10 @@ html {
 
 .text-black {
     color: #000 !important;
+}
+
+.dc-logo-font {
+    font-family: 'Andada Pro', serif;
 }
 
 .hr-light {
@@ -222,6 +232,22 @@ nav a {
     font-weight: 500;
     letter-spacing: 2px;
 }
+
+
+/* Product Page Stylings */
+.body-overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: #fff;
+    z-index: -1;
+}
+
+
+
+
 
 
 
