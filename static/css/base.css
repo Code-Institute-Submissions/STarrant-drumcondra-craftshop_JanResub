@@ -41,6 +41,10 @@ html {
     font-family: 'Andada Pro', serif;
 }
 
+.text-small {
+    font-size: smaller;
+  }
+
 .hr-light {
     border-bottom: 1px solid #8C5383;
     box-shadow: 1px 1px 1px rgba(0,0,0,0.6);
