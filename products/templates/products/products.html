@@ -23,13 +23,16 @@
             </div>
             <!-- HR Separator -->
             <div class=" col-10 offset-1 hr-heavy"></div>
+            <!-- Product Display Area -->
             <div class="row">
                 <div class="product-container col-10 offset-1">
                     <div class="row mt-1 mb-2"></div>
                     <div class="row">
                         {% for product in products %}
                             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                                <!-- Product Card -->
                                 <div class="card h-100 border-0">
+                                    <!-- Product Image -->
                                     {% if product.image %}
                                         <a href="{% url 'product_detail' product.id %}">
                                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -39,13 +42,17 @@
                                             <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                         </a>
                                     {% endif %}
+                                    <!-- Product Name -->
                                     <div class="card-body pb-0">
                                         <p class="mb-0">{{ product.name }}</p>
                                     </div>
+                                    <!-- Product Footer -->
                                     <div class="card-footer bg-white pt-0 border-0 text-left">
                                         <div class="row">
                                             <div class="col">
+                                                <!-- Product Price -->
                                                 <p class="leda mb-0 text-left font-weight-bold">€{{ product.price }}</p>
+                                                <!-- Product Rating -->
                                                 {% if product.rating %}
                                                     <small class="text-muted"><i class="bi bi-star mr-1"></i>{{ product.rating }} / 5</small>
                                                 {% else %}
@@ -54,13 +61,15 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <!-- End Footer -->
                                 </div>
+                                <!-- End Product Card -->
                             </div>
                         {% endfor %}
                     </div>
                 </div>
             </div>
+            <!-- End Product Display Area -->
         </div>
     </div>
 {% endblock content %}
