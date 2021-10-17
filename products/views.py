@@ -27,7 +27,7 @@ def all_products(request):
             products = products.filter(queries)
         
         # Return filtered results if
-        if category in request.GET:
+        if 'category' in request.GET:
             category = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
