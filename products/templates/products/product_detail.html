@@ -29,10 +29,14 @@
                     {% endif %}
                 </div>
             </div>
+            <!-- Product Info Container -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="div-product-details mb-5 mt-md-5">
+                    <!-- Product Name -->
                     <p class="mb-0">{{ product.name }} by {{ product.creator }}</p>
+                    <!-- Product Price -->
                     <p class="lead mb-0 text-left font-weight-bold">€ {{ product.price }}</p>
+                    <!-- Product Category (if applicable) -->
                     {% if product.category %}
                         <p class="small-text mt-1 mb-0">
                             <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
@@ -40,14 +44,17 @@
                             </a>
                         </p>
                     {% endif %}
+                    <!-- Product Rating (if applicable) -->
                     {% if product.rating %}
                         <p class="text.small text-muted"><i class="bi bi-star mr-1"></i> {{ product.rating }} / 5</p>
                     {% else %}
                         <p class="text.small text-muted">No rating yet.</p>
                     {% endif %}
+                    <!-- Product Long Description -->
                     <p class="mt-3">{{ product.description }}</p>
                 </div>
             </div>
+            <!-- End of Product Info Container -->
         </div>
     </div>
 {% endblock content %}
