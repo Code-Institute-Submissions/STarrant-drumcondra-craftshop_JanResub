@@ -23,10 +23,76 @@
         </div>
         <div class="row">
             <div class="col">
-                {% if basket_items %}
-                    <div class="table-responsive rounded"></div>
+                {% if basket_items_list %}
+                    <!-- Order Total Table -->
+                    <table class="table table-striped table-hover">
+                        <!-- Table Header -->
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col"></th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Qty.</th>
+                                <th scope="col">Unit Cost</th>
+                                <th scope="col">Total Cost</th>
+                            </tr>
+                        </thead>
+                        <!-- Table Body -->
+                        <tbody class="table-hover">
+                            {% for item in basket_items_list %}
+                                <tr>
+                                    <!-- Item Number -->
+                                    <td>{{ forloop.counter }}</td>
+                                    <!-- Item Image -->
+                                    <td class="w-25 p-3">
+                                        <img class="img-fluid rounded" src="{{ item.product.image_url }}">
+                                    </td>
+                                    <!-- Item Name and Stock Number -->
+                                    <td class="py-3">
+                                        <p class="my-0">
+                                            <strong>{{ item.product.name }}</strong>
+                                        </p>
+                                        <p class="my-0 text-muted">
+                                            {{ item.product.sku }}
+                                        </p>
+                                    </td>
+                                    <!-- Item Quantity -->
+                                    <td class="py-3">
+                                        <p class="my-0">
+                                            {{ item.quantity }}
+                                        </p>
+                                    </td>
+                                    <!-- Item Cost -->
+                                    <td class="py-3">
+                                        <p class="my-0">
+                                            € {{ item.product.price }}
+                                        </p>
+                                    </td>
+                                    <!-- Total Cost -->
+                                    <td class="py-3">
+                                        <p class="my-0">
+                                            <strong>€ {{ item.line_value }}</strong>
+                                        </p>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <td>
+                                    <Strong>Total Cost:</Strong>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <p><strong>€ {{ total_value }}</strong></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 {% else %}
-                    <p class="lead mb-5">Your bag is empty.</p>
+                    <!-- Empty Basket Condition -->
+                    <p class="lead mb-5">Your basket is empty.</p>
                     <a href="{% url 'products' %}" class="btn btn-dc-standard">
                         <i class="bi bi-arrow-return-left"></i> Continue Shopping?
                     </a>
