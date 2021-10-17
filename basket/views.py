@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 
+
 def view_basket(request):
     """ A view to render the shopping basket page. """
 
