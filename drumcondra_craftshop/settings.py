@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'home',
     # products app - Dromcondra Craftshop Products App
     'products',
+    # shopping basket app - Dromcondra Craftshop Basket App
+    'basket',
 ]
 
 MIDDLEWARE = [
