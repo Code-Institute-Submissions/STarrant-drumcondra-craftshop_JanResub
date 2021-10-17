@@ -8,8 +8,30 @@
         </div>
     </div>
 
-{% endblock %}
+{% endblock page_header%}
 
 {% block content %}
-
+    <div class="background-overlay"></div>
+    <div class="container mb-2">
+        <!-- Shopping Basket Header -->
+        <div class="row">
+            <div class="col">
+                <h2 class="dc-logo-font">Shopping Basket</h2>
+                <!-- HR Separator -->
+                <div class="hr-heavy"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {% if basket_items %}
+                    <div class="table-responsive rounded"></div>
+                {% else %}
+                    <p class="lead mb-5">Your bag is empty.</p>
+                    <a href="{% url 'products' %}" class="btn btn-dc-standard">
+                        <i class="bi bi-arrow-return-left"></i> Continue Shopping?
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 {% endblock content %}
