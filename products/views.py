@@ -30,7 +30,7 @@ def all_products(request):
         
         # CATEGORY SELECTION FUNCTIONALITY
         if 'category' in request.GET:
-            category = request.GET['category'].split(',')
+            categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 

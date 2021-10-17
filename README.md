@@ -245,6 +245,7 @@ Many bugs were encountered during the development of the project - all admittedl
 * Bugfix:  Used the variable product_id rather than product.id in the product detail anchor. This created some very strange error messages that took a long time to figure out what I had done wrong. The fix is described in the CI Boutique Ado tutorial.
 * Bugfix:  Missing 'url' term from Django template link in base.html caused a synthax error. This took quite a while to figure out what I had done.
 * BugFix:  Missing single quotes around search term in views.py caused a synthax error on implementation of the search bar. This is was obvious enough from the error message and quickly fixed.
+* BugFix:  Error on variable name 'categories' in products/views.py. Incorrectly named 'category' and threw error message.
 
 
 ### Testing Bugs
