@@ -48,21 +48,40 @@ users to send a business request.
 
 ### User Stories
 
-* As a **user**, I want to see all the main services this company can offer at a glance so that in a single scroll of the homepage, I know exactly what this company has to offer.
-* As a **user**, I want **fast loading-times** for pages.
-* As a **user**, I want a **simple and well laid-out** website that gives the impression of these complex topics being made simple.
-* As a **user**, I want to see **modern design** to show that the site owner is au fait with the latest developments in technology.
-* As a **user**, I want to see some **examples of previous projects** done by this company.
-* As a **user**, I want to see references to **industry standards** to be sure the deliverables will meet my company's specifications.
-* As a **user**, I want to be able to **contact** the site owner and give a simple description of a potential project.
+#### Viewing and Navigation
 
-### Site Owner Goals
+* As a **Shopper**, I want to be able to **view the site's products** so that I can **chose some to buy**.
+* As a **Shopper**, I want to be able to **view an individual product's detailed information** so that I can **see the detailed description, manufacturer or creator, price and rating.**.
+* As a **Shopper**, I want to be able to **see the number of items and value of my shopping basket** so that I can **be aware of how much I've committed to spend**.
 
-* As a **site-owner**, I want to clearly **communicate my company's services**.
-* As a **site-owner**, I want to convey **technical expertise in the subject matter** to site visitors.
-* As a **site-owner**, I want contact **telephone and email readily available** because building connections is the key to business.
-* As a **site-owner**, I want **no social media affiliations** on this site becuase some projects will be undertaken with stict NDA and security requirements.
-* As a **site-owner**, I want a **simple and concise contact form** that gathers important project data from potential customers.
+#### Registration and User Accounts
+
+* As a **Site User**, I want to be able to **easily sign up for an account** so that I can **have an account and view my profile**.
+* As a **Site User**, I want to be able to **log in and logout** so that I can **access my personal information**.
+* As a **Site User**, I want to be able to **recover my password** so that I can **regain access to my account if I forget my stored password**.
+* As a **Site User**, I want to be able to **receive password change confirmation by email** so that I can **know my password has been changed - by me or someone else**.
+* As a **Site User**, I want to be able to **have a personal email profile** so that I can **see order history, confirmations and personal information**.
+
+#### Sorting and Searching
+
+* As a **Shopper**, I want to be able to **see a list of available products** so that I can **I can chose some to buy**.
+* As a **Shopper**, I want to be able to **chose a product category** so that I can **see a sub set of products of a particular type**.
+* As a **Shopper**, I want to be able to **sort by price or rating** so that I can **so that I can see items that are well reviewed or see ones in a particular price range**.
+* As a **Shopper**, I want to be able to **search by product name** so that I can **find a particular item I'm looking for**.
+* As a **Shopper**, I want to be able to **see search results and number selected** so that I can **see what my search results are and know how narrow/wide my search criteria is**.
+* As a **Shopper**, I want to be able to **see results for particular creator** so that I can **see other items made by the same person**.
+
+#### Purchasing and Checkout
+
+* As a **Shopper**, I want to be able to **see a list of items in my shopping basket** so that I can **I know exactly what I am buying**.
+* As a **Shopper**, I want to be able to **adjust the quantity of items in my basket** so that I can **easily reduce or add extra items as needed**.
+* As a **Shopper**, I want to be able to **return to the main shopping area from the shopping basket screen** so that I can **continue shopping after having confirmed what's in my basket**.
+* As a **Shopper**, I want to be able to **buy items in my basket securely** so that I can **feel safe regarding my payment details**.
+
+#### Site Administration
+
+* As a **Site-Owner**, I want to be able to **create new products to sell in the shop** so that I can **easily expland my range of products**.
+* As a **Site-Owner**, I want to be able to **create new creator/artisans for the store** so that I can **easily reduce or add extra items as needed**.
 
 ### User Requirements and Expectations
 
@@ -115,7 +134,10 @@ As the design progressed however, the site diverged significantly from multipage
 
 * Simple navigation on all screen sizes.
 * Contact form with text entry, drop-downs and check boxes.
-* Pre-header 
+* Main store view with products listed on bootstrap cards.
+* Individual product view with a product detailed description.
+* Creator view... TBA
+* Shopping basket page with a table of products added.
 
 **Features** that will be **implemented** in the **future:**
 
@@ -178,16 +200,14 @@ CSS code has been tested using the [CSS validator](http://jigsaw.w3.org/css-vali
 
 #### CSS Test Fixes
 
-* Removed redundant id #btn-floating-home from code.
-* Set border: none; in .footer-list-group-item class.
-* Errors for "-moz-transition", "-webkit-transition", "-webkit-box-shadow" and "-moz-box-shadow" are ignored.
+* TBA
+* TBA
 * Re-testing after these fixes gave a **PASS**.
 
 ### Responsiveness
 
 * The site has been implemented using Bootstrap throughout and built with a mobile first philosophy.
 * Responsiveness is quite good going from mobile to larger screens and navbar collapses predictably.
-* The back to top button suggested by my mentor makes returning to the top of the screen straight-forward and intuitive.
 * Some of the propotioning on images could be improved with media queries but overall the test is a **PASS**.
 
 <details>
@@ -216,28 +236,80 @@ CSS code has been tested using the [CSS validator](http://jigsaw.w3.org/css-vali
 
 ### Design
 
-* The design of the site was inspired by...
+* The design of the site was inspired by a combination of a craftshop in my locality that sells a lot of unique, locally produced goods and the Boutique Ado tutorial project on the CI course. Simplicity of design was important throughout with a calm color palette. Accessible contact details are there also for people who feel more comfortable contacting the business directly with any queries.
 
 ### Contact form
 
-* The contact form
+* The contact form was provided to allow a quick way of a person contacting the store with a simple question outside of normal office hours. Typically, online shopping may be conducted in the evening time or international customers may prefer not to dial an international number.
 
 ### User Stories
 
 <details>
-  <summary>User stories were tested using Google Chrome and developer tools. The only item of note which could be described as noteable sub-par would be the loading speed which needs improvement. Click dropdown to see individual tests.</summary>
-  
+  <summary>User stories were tested using Google Chrome and developer tools.</summary>
+
 #### Summary of user tests
 
-* Test: As a **user**, I want to 
+##### Viewing and Navigation
 
+* Test-1.   As a **Shopper**, I want to be able to **view the site's products** so that I can **chose some to buy**.
+![DC-User-Test-1](wireframes/dc-user-test-1.png)
+* Test-2.   As a **Shopper**, I want to be able to **view an individual product's detailed information** so that I can **see the detailed description, manufacturer or creator, price and rating.**.
+![DC-User-Test-2](wireframes/dc-user-test-2.png)
+* Test-3.   As a **Shopper**, I want to be able to **see the number of items and value of my shopping basket** so that I can **be aware of how much I've committed to spend**.
+![DC-User-Test-3](wireframes/dc-user-test-3.png)
+
+##### Registration and User Accounts
+
+* Test-4.   As a **Site User**, I want to be able to **easily sign up for an account** so that I can **have an account and view my profile**.
+![DC-User-Test-4](wireframes/dc-user-test-4.png)
+* Test-5.   As a **Site User**, I want to be able to **log in and logout** so that I can **access my personal information**.
+![DC-User-Test-5](wireframes/dc-user-test-5.png)
+* Test-6.   As a **Site User**, I want to be able to **recover my password** so that I can **regain access to my account if I forget my stored password**.
+![DC-User-Test-6](wireframes/dc-user-test-6.png)
+* Test-7.   As a **Site User**, I want to be able to **receive password change confirmation by email** so that I can **know my password has been changed - by me or someone else**.
+![DC-User-Test-7](wireframes/dc-user-test-7.png)
+* Test-8.   As a **Site User**, I want to be able to **have a personal email profile** so that I can **see order history, confirmations and personal information**.
+![DC-User-Test-8](wireframes/dc-user-test-8.png)
+
+##### Sorting and Searching
+
+* Test-9.   As a **Shopper**, I want to be able to **see a list of available products** so that I can **I can chose some to buy**.
+![DC-User-Test-9](wireframes/dc-user-test-9.png)
+* Test-10.   As a **Shopper**, I want to be able to **chose a product category** so that I can **see a sub set of products of a particular type**.
+![DC-User-Test-10](wireframes/dc-user-test-10.png)
+* Test-11.   As a **Shopper**, I want to be able to **sort by price or rating** so that I can **so that I can see items that are well reviewed or see ones in a particular price range**.
+![DC-User-Test-11](wireframes/dc-user-test-11.png)
+* Test-12.   As a **Shopper**, I want to be able to **search by product name** so that I can **find a particular item I'm looking for**.
+![DC-User-Test-12](wireframes/dc-user-test-12.png)
+* Test-13.   As a **Shopper**, I want to be able to **see search results and number selected** so that I can **see what my search results are and know how narrow/wide my search criteria is**.
+![DC-User-Test-13](wireframes/dc-user-test-13.png)
+* Test-14.   As a **Shopper**, I want to be able to **see results for particular creator** so that I can **see other items made by the same person**.
+![DC-User-Test-14](wireframes/dc-user-test-14.png)
+
+##### Purchasing and Checkout
+
+* Test-15.   As a **Shopper**, I want to be able to **see a list of items in my shopping basket** so that I can **I know exactly what I am buying**.
+![DC-User-Test-15](wireframes/dc-user-test-15.png)
+* Test-16.   As a **Shopper**, I want to be able to **adjust the quantity of items in my basket** so that I can **easily reduce or add extra items as needed**.
+![DC-User-Test-16](wireframes/dc-user-test-16.png)
+* Test-17.   As a **Shopper**, I want to be able to **return to the main shopping area from the shopping basket screen** so that I can **continue shopping after having confirmed what's in my basket**.
+![DC-User-Test-17](wireframes/dc-user-test-17.png)
+* Test-18.   As a **Shopper**, I want to be able to **buy items in my basket securely** so that I can **feel safe regarding my payment details**.
+![DC-User-Test-18](wireframes/dc-user-test-18.png)
+
+##### Site Administration
+
+* Test-19.   As a **Site-Owner**, I want to be able to **create new products to sell in the shop** so that I can **easily expland my range of products**.
+![DC-User-Test-19](wireframes/dc-user-test-19.png)
+* Test-20.   As a **Site-Owner**, I want to be able to **create new creator/artisans for the store** so that I can **easily reduce or add extra items as needed**.
+![DC-User-Test-20](wireframes/dc-user-test-20.png)
 </details>
 
 ## Bugs
 
 ---
 
-Many bugs were encountered during the development of the project - all admittedly of my own making.
+Many bugs were encountered during the development of the project - all admittedly of my own making while trying to learn Django.
 
 ### Development Bugs
 
