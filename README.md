@@ -33,18 +33,13 @@
 
 ### Project Goals
 
-* The goal of this project is to create a digital launchpad for a small electrical engineering company. 
-The main services on offer need to be clearly demonstrated on the landing section through simple bullet-points. 
-Links to sections provide further information on each of these services. A simple contact page allows 
-users to send a business request.
+* The goal of this project is to create a digital counter part for a successful local craft business in order for them to broaden their horizons and sell products to a wider audience. 
 
 ### User Goals
 
-* Find information about **electrical design services**.
-* Find information about **motor and drive services**.
-* Find information about **automation services**.
-* Find information about **machine safety services**.
-* **Send an email** to the site owner.
+* As a **site owner**, I want a functional e-business platform to complement my real-world business.
+* As a **shopper**, I want to be able to view and buy this company's products on-line.
+* As a ....
 
 ### User Stories
 
