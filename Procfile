@@ -1,0 +1,1 @@
+web: gunicorn drumcondra_craftshop.wsgi:application
