@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-\
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://drumcondra-craftshop.herokuapp.com/', 'localhost']
+ALLOWED_HOSTS = ['drumcondra-craftshop.herokuapp.com', 'localhost']
 
 
 # Application definition
