@@ -46,7 +46,8 @@ html {
   }
 
 .hr-light {
-    border-bottom: 1px solid #8C5383;
+    /* border-bottom: 1px solid #8C5383; */
+    border-bottom: 1px solid red;   /* TestHigh */
     box-shadow: 1px 1px 1px rgba(0,0,0,0.6);
 }
 
