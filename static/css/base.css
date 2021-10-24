@@ -52,7 +52,8 @@ html {
 }
 
 .hr-heavy {
-    border-bottom: 3px solid #8C5383;
+    /* border-bottom: 3px solid #8C5383; */
+    border-bottom: 1px solid red;   /* TestHigh */
     box-shadow: 1px 2px 2px rgba(0,0,0,0.6);
 }
 
