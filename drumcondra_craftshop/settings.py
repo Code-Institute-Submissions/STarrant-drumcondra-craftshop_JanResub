@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = os.environ.get('SECRET_KEY', '')
+# SECRET_KEY = os.environ.get('SECRET_KEY', '')   TestHigh
 SECRET_KEY = os.environ.get('SECRET_KEY', '_')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -176,6 +176,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if 'USE_AWS' in os.environ:
+    # Cache Control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+
     # AWS S3 Bucket Configuration
     AWS_STORAGE_BUCKET_NAME = 'drumcondra-craftshop'
     AWS_S3_REGION_NAME = 'eu-west-1'
