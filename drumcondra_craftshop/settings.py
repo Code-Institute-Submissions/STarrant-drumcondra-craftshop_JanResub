@@ -192,19 +192,10 @@ if 'USE_AWS' in os.environ:
     AWS_DEFAULT_ACL = 'public-read'
 
     # Static and Media Files
-    # STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-    # STATICFILES_LOCATION = 'static'
-    # DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-    # MEDIAFILES_LOCATION = 'media'
-
-# testhigh - new code starts here
-
-    # s3 static settings
-    AWS_LOCATION = 'static'
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-# testhigh new code ends here
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
 
     # Override static and media URLs in Production
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
