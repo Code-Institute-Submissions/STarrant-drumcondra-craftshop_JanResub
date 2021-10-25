@@ -19,12 +19,12 @@
                 <!-- Product Image -->
                 <div class="div-product-image my-5">
                     {% if product.image %}
-                        <a href="{{ product.image.url }}" target="_blank">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        <a href="{{ product.item_id.image.url }}" target="_blank">
+                            <img class="card-img-top img-fluid" src="{{ product.item_id.image.url }}" alt="{{ product.item_id.name }}">
                         </a>
                     {% else %}
                         <a href="">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.item_id.name }}">
                         </a>
                     {% endif %}
                 </div>
@@ -33,14 +33,14 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="div-product-details mb-5 mt-md-5">
                     <!-- Product Name -->
-                    <p class="mb-0">{{ product.name }} by {{ product.creator }}</p>
+                    <p class="mb-0">{{ product.item_id.name }} by {{ product.item_id.creator_id.name }}</p>
                     <!-- Product Price -->
-                    <p class="lead mb-0 text-left font-weight-bold">€ {{ product.price }}</p>
+                    <p class="lead mb-0 text-left font-weight-bold">€ {{ product.item_id.unitcost }}</p>
                     <!-- Product Category (if applicable) -->
-                    {% if product.category %}
+                    {% if product.item_id.category_id %}
                         <p class="small-text mt-1 mb-0">
-                            <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
-                                <i class="bi bi-collection-fill"></i> {{ product.category.friendly_name }}
+                            <a class="text-muted" href="{% url 'products' %}?category={{ product.item_id.category_id.category_tag }}">
+                                <i class="bi bi-collection-fill"></i> {{ product.item_id.category_id.category_name }}
                             </a>
                         </p>
                     {% endif %}
@@ -51,7 +51,7 @@
                         <p class="text.small text-muted">No rating yet.</p>
                     {% endif %}
                     <!-- Product Long Description -->
-                    <p class="mt-3">{{ product.description }}</p>
+                    <p class="mt-3">{{ product.item_id.description }}</p>
                     <!-- Add to shopping basket functionality -->
                     <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
                         <!-- Cross site request forgery token -->
