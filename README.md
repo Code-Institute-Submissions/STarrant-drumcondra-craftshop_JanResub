@@ -4,46 +4,56 @@
 
 ![DC-Web-Mockup](wireframes/dc-techsini-multidevice-mockup.png)
 
-## Contents
+## Project Goals
+
+* The goal of this project is to create a digital counterpart for a successful local craft business in order for them to broaden their horizons and sell products to a wider audience. 
+
+<a></a>
+## Table of Contents
 
 ---
 
-* UX
-  * Project Goals
-    * User Goals
-    * User Stories
-    * Site Owner Goals
-    * User Requirements and Expectations
-    * Design Choices
-      * Fonts
-        * Icons
-        * Colours
-* Technologies
-* Features
-  * Features that have been developed
-    * Features that will be implemented in the future
-* Testing
-* Bugs
-* Deployment
-* Credit
+* [UX](#ux)
+  * [User Goals](#user-goals)
+  * [User Stories](#user-stories)
+  * [Site Owner Goals](#site-owner-goals)
+  * [User Requirements and Expectations](#user-requirements)
+  * [Design Choices](#design-choices)
+    * [Fonts](#fonts)
+    * [Icons](#icons)
+    * [Colours](#colours)
+    * [Structure](#structure)
+* [Wireframes and Flowcharts](#wireframes-and-flowcharts)
+  * [Wireframes](#wireframes)
+  * [Flowcharts](#flowcharts)
+  * [Database Structure](#database-structure)
+* [Technologies](#technologies)
+  * [Languages](#languages)
+  * [Libraries and Frameworks](#libraries-frameworks)
+  * [Tools](#tools)
+* [Features](#features)
+  * [Features that have been developed](#features-done)
+  * [Features that will be implemented in the future](#features-future)
+* [Testing](#testing)
+* [Bugs](#bugs)
+* [Deployment](#deployment)
+  * [Local Deployment](#local-deployment)
+  * [Heroku/AWS Deployment](#heroku-deployment)
+* [Credit](#credit)
 
-## UX (User Experience)
+## UX (User Experience) <a name="ux"></a>
 
 ---
 
-### Project Goals
-
-* The goal of this project is to create a digital counter part for a successful local craft business in order for them to broaden their horizons and sell products to a wider audience. 
-
-### User Goals
+### User Goals <a name="#"></a>
 
 * As a **site owner**, I want a functional e-business platform to complement my real-world business.
 * As a **shopper**, I want to be able to view and buy this company's products on-line.
 * As a ....
 
-### User Stories
+### User Stories <a name="#"></a>
 
-#### Viewing and Navigation
+#### Viewing and Navigation 
 
 * As a **Shopper**, I want to be able to **view the site's products** so that I can **chose some to buy**.
 * As a **Shopper**, I want to be able to **view an individual product's detailed information** so that I can **see the detailed description, manufacturer or creator, price and rating.**.
@@ -73,12 +83,14 @@
 * As a **Shopper**, I want to be able to **return to the main shopping area from the shopping basket screen** so that I can **continue shopping after having confirmed what's in my basket**.
 * As a **Shopper**, I want to be able to **buy items in my basket securely** so that I can **feel safe regarding my payment details**.
 
+### Site Owner Goals <a name="#"></a>
+
 #### Site Administration
 
 * As a **Site-Owner**, I want to be able to **create new products to sell in the shop** so that I can **easily expland my range of products**.
 * As a **Site-Owner**, I want to be able to **create new creator/artisans for the store** so that I can **easily reduce or add extra items as needed**.
 
-### User Requirements and Expectations
+### User Requirements and Expectations <a name="#"></a>
 
 #### Requirements
 
@@ -94,31 +106,43 @@
 * **Navigation** takes **user** to specific **parts** of the **website**.
 * Working **Read More** buttons to **avoid** big **lumps** of clustered **text**.
 
-### Design Choices
+### Design Choices <a name="#"></a>
 
 ---
 In designing this site I took inspiration from...
 
-#### Fonts
+#### Fonts <a name="#"></a>
 
 [Google fonts](https://fonts.google.com/) have been used to give typographic style.
 font-family: **???** is used for most text on the site.
 font-family: **???** is used for special sans-serif fonts such as the pre-header and footer where a more compact and stylish font are desired.
 
-#### Icons
+#### Icons <a name="#"></a>
 
 [Bootstrap Icons](https://icons.getbootstrap.com/) free icons have been used throughout this project.
 
-#### Colors
+#### Colors <a name="#"></a>
 
 The website colors were chosen using [coolors.co](https://coolors.co/). The justification is...
 ![Color-Selection](/wireframes/dc-site-colors.jpg)
 
-## Wireframing
+#### Structure <a name="#"></a>
+
+Insert Text here. testhigh
+
+### Wireframes and Flowcharts <a name="#"></a>
+
+#### Wireframes <a name="#"></a>
 
 Wireframing was done using Balsamiq under full-functional trial provided by Code Institute.
 Wireframes were developed for a [main page](wireframes/wf-home-page-rev-0-1.png), [standard section page](wireframes/wf-electrical-design-page-0-1.png) and a [contact page](wireframes/wf-contact-page-rev0-1.png).
 As the design progressed however, the site diverged significantly from multipage model to a single scolling site with all content on a single page.
+
+#### Flowcharts <a name="#"></a>
+
+
+#### Database Structure <a name="database-structure"></a>
+
 
 ---
 
