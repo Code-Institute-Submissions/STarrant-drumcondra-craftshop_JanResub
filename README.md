@@ -131,6 +131,8 @@ The website colors were chosen using [coolors.co](https://coolors.co/). The just
 
 Insert Text here. testhigh
 
+###### [Back to Top](#contents)
+
 ## Wireframes and Flowcharts <a name="wireframes-and-flowcharts"></a>
 
 ### Wireframes <a name="wireframes"></a>
@@ -148,6 +150,8 @@ Insert flowcharts here. testhigh
 Insert database structure here. testhigh
 
 ---
+
+###### [Back to Top](#contents)
 
 ## Technologies Used <a name="technologies"></a>
 
@@ -184,6 +188,8 @@ Insert database structure here. testhigh
 
 ---
 
+###### [Back to Top](#contents)
+
 ## Features <a name="features"></a>
 
 ---
@@ -200,7 +206,7 @@ Insert database structure here. testhigh
 
 * The
 
-
+###### [Back to Top](#contents)
 
 ## Testing <a name="testing"></a>
 
@@ -336,6 +342,8 @@ test high insert css errors and code here
 ![DC-User-Test-20](wireframes/dc-user-test-20.png)
 </details>
 
+###### [Back to Top](#contents)
+
 ## Bugs <a name="bugs"></a>
 
 ---
@@ -356,6 +364,8 @@ Many bugs were encountered during the development of the project - all admittedl
 
 * A few bugs were thrown up by the HTML Validator and CSS Validator. The solutions are given above in the **HTML Test** and **CSS Test** Sections.
 
+###### [Back to Top](#contents)
+
 ## Deployment <a name="deployment"></a>
 
 ---
@@ -368,6 +378,8 @@ The site has been deployed and tested locally on gitpod. testhigh
 
 The site has been deployed and tested remotely using Heroku and AWS S3 services. testhigh
 
+###### [Back to Top](#contents)
+
 ## Credits <a name="credit"></a>
 
 ---
@@ -377,3 +389,5 @@ The site has been deployed and tested remotely using Heroku and AWS S3 services.
 ### Special Thanks
 
 * My Code Institute mentor, [Simen Daehlin](https://github.com/Eventyret), for a lot of great advice and direction along the way. His time, effort and experience made a huge difference to the code quality, readability and end result. It would be hard to overstate his input here.
+
+###### [Back to Top](#contents)
