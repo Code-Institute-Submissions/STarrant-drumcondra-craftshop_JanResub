@@ -9,7 +9,8 @@
 * The goal of this project is to create a digital counterpart for a successful local craft business in order for them to broaden their horizons and sell products to a wider audience. 
 
 <a></a>
-## Table of Contents
+
+## Table of Contents <a name="contents"></a>
 
 ---
 
@@ -21,7 +22,7 @@
   * [Design Choices](#design-choices)
     * [Fonts](#fonts)
     * [Icons](#icons)
-    * [Colours](#colours)
+    * [Colors](#colors)
     * [Structure](#structure)
 * [Wireframes and Flowcharts](#wireframes-and-flowcharts)
   * [Wireframes](#wireframes)
@@ -38,20 +39,20 @@
 * [Bugs](#bugs)
 * [Deployment](#deployment)
   * [Local Deployment](#local-deployment)
-  * [Heroku/AWS Deployment](#heroku-deployment)
+  * [Heroku/AWS Deployment](#remote-deployment)
 * [Credit](#credit)
 
 ## UX (User Experience) <a name="ux"></a>
 
 ---
 
-### User Goals <a name="#"></a>
+### User Goals <a name="user-goals"></a>
 
 * As a **site owner**, I want a functional e-business platform to complement my real-world business.
 * As a **shopper**, I want to be able to view and buy this company's products on-line.
 * As a ....
 
-### User Stories <a name="#"></a>
+### User Stories <a name="user-stories"></a>
 
 #### Viewing and Navigation 
 
@@ -83,14 +84,14 @@
 * As a **Shopper**, I want to be able to **return to the main shopping area from the shopping basket screen** so that I can **continue shopping after having confirmed what's in my basket**.
 * As a **Shopper**, I want to be able to **buy items in my basket securely** so that I can **feel safe regarding my payment details**.
 
-### Site Owner Goals <a name="#"></a>
+### Site Owner Goals <a name="site-owner-goals"></a>
 
 #### Site Administration
 
 * As a **Site-Owner**, I want to be able to **create new products to sell in the shop** so that I can **easily expland my range of products**.
 * As a **Site-Owner**, I want to be able to **create new creator/artisans for the store** so that I can **easily reduce or add extra items as needed**.
 
-### User Requirements and Expectations <a name="#"></a>
+### User Requirements and Expectations <a name="user-requirements"></a>
 
 #### Requirements
 
@@ -106,74 +107,60 @@
 * **Navigation** takes **user** to specific **parts** of the **website**.
 * Working **Read More** buttons to **avoid** big **lumps** of clustered **text**.
 
-### Design Choices <a name="#"></a>
+### Design Choices <a name="design-choices"></a>
 
 ---
 In designing this site I took inspiration from...
 
-#### Fonts <a name="#"></a>
+#### Fonts <a name="fonts"></a>
 
 [Google fonts](https://fonts.google.com/) have been used to give typographic style.
 font-family: **???** is used for most text on the site.
 font-family: **???** is used for special sans-serif fonts such as the pre-header and footer where a more compact and stylish font are desired.
 
-#### Icons <a name="#"></a>
+#### Icons <a name="icons"></a>
 
 [Bootstrap Icons](https://icons.getbootstrap.com/) free icons have been used throughout this project.
 
-#### Colors <a name="#"></a>
+#### Colors <a name="colors"></a>
 
 The website colors were chosen using [coolors.co](https://coolors.co/). The justification is...
 ![Color-Selection](/wireframes/dc-site-colors.jpg)
 
-#### Structure <a name="#"></a>
+#### Structure <a name="structure"></a>
 
 Insert Text here. testhigh
 
-### Wireframes and Flowcharts <a name="#"></a>
+## Wireframes and Flowcharts <a name="wireframes-and-flowcharts"></a>
 
-#### Wireframes <a name="#"></a>
+### Wireframes <a name="wireframes"></a>
 
 Wireframing was done using Balsamiq under full-functional trial provided by Code Institute.
 Wireframes were developed for a [main page](wireframes/wf-home-page-rev-0-1.png), [standard section page](wireframes/wf-electrical-design-page-0-1.png) and a [contact page](wireframes/wf-contact-page-rev0-1.png).
 As the design progressed however, the site diverged significantly from multipage model to a single scolling site with all content on a single page.
 
-#### Flowcharts <a name="#"></a>
+### Flowcharts <a name="flowcharts"></a>
 
+Insert flowcharts here. testhigh
 
 #### Database Structure <a name="database-structure"></a>
 
+Insert database structure here. testhigh
 
 ---
 
-## Features
-
----
-**Features** that have been **implemented:**
-
-* Simple navigation on all screen sizes.
-* Contact form with text entry, drop-downs and check boxes.
-* Main store view with products listed on bootstrap cards.
-* Individual product view with a product detailed description.
-* Creator view... TBA
-* Shopping basket page with a table of products added.
-
-**Features** that will be **implemented** in the **future:**
-
-* The
-
-## Technologies Used
+## Technologies Used <a name="technologies"></a>
 
 ---
 
-### Languages
+### Languages <a name="languages"></a>
 
 * HTML
 * CSS
 * JavaScript
 * Python
 
-### Tools & Libraries
+### Libraries and Frameworks <a name="libraries-frameworks"></a>
 
 * [Git](https://git-scm.com/)
 * [Bootstrap](https://getbootstrap.com/)
@@ -184,20 +171,48 @@ As the design progressed however, the site diverged significantly from multipage
 * [Markdownlint](https://dlaa.me/markdownlint/)
 * [Django](https://www.djangoproject.com/)
 
-## Testing
+### Tools <a name="tools"></a>
+
+* [Git](https://git-scm.com/)
+* [Bootstrap](https://getbootstrap.com/)
+* [Font-Awesome](https://fontawesome.com/icons?d=gallery)
+* [Popper](https://popper.js.org/)
+* [JQuery](https://jquery.com/)
+* [Google fonts](https://fonts.google.com/)
+* [Markdownlint](https://dlaa.me/markdownlint/)
+* [Django](https://www.djangoproject.com/)
+
+---
+
+## Features <a name="features"></a>
+
+---
+**Features** that have been **implemented:** <a name="features-done"></a>
+
+* Simple navigation on all screen sizes.
+* Contact form with text entry, drop-downs and check boxes.
+* Main store view with products listed on bootstrap cards.
+* Individual product view with a product detailed description.
+* Creator view... TBA
+* Shopping basket page with a table of products added.
+
+**Features** that will be **implemented** in the **future:** <a name="features-future"></a>
+
+* The
+
+
+
+## Testing <a name="testing"></a>
 
 ---
 
 ### HTML Test
 
-
-```
+---
 
 #### HTML Test Fixes
 
-* Erroneous placeholder reference deleted from the form dropdown list.
-* Misspelling between the label and the id fixed for the form's given name entry.
-* Re-Testing after these corrections gave a **PASS**.
+* testhigh HTML test fixes to be added here
 
 ### CSS Test
 
@@ -205,21 +220,18 @@ CSS code has been tested using the [CSS validator](http://jigsaw.w3.org/css-vali
 
 #### CSS Test Errors
 
- 176 #btn-floating-home Value Error : background-color 212121 is not a background-color value : 212121
+testhigh insert CSS test fix errors here
 
 #### CSS Test Warnings
 
 ``` css
-    153  -moz-transition /*is an unknown vendor extension*/
-    154  -webkit-transition /*is an unknown vendor extension*/
-    190  -webkit-box-shadow /*is an unknown vendor extension*/
-    191  -moz-box-shadow /*is an unknown vendor extension*/
-    293 .footer-list-group-item /*Same color for background-color and border-color*/
+test high insert css errors and code here
+
 ```
 
 #### CSS Test Fixes
 
-* TBA
+* TBA testhigh
 * TBA
 * Re-testing after these fixes gave a **PASS**.
 
@@ -261,7 +273,7 @@ CSS code has been tested using the [CSS validator](http://jigsaw.w3.org/css-vali
 
 * The contact form was provided to allow a quick way of a person contacting the store with a simple question outside of normal office hours. Typically, online shopping may be conducted in the evening time or international customers may prefer not to dial an international number.
 
-### User Stories
+### User Story Tests
 
 <details>
   <summary>User stories were tested using Google Chrome and developer tools.</summary>
@@ -324,7 +336,7 @@ CSS code has been tested using the [CSS validator](http://jigsaw.w3.org/css-vali
 ![DC-User-Test-20](wireframes/dc-user-test-20.png)
 </details>
 
-## Bugs
+## Bugs <a name="bugs"></a>
 
 ---
 
@@ -337,23 +349,30 @@ Many bugs were encountered during the development of the project - all admittedl
 * Bugfix:  Missing 'url' term from Django template link in base.html caused a synthax error. This took quite a while to figure out what I had done.
 * BugFix:  Missing single quotes around search term in views.py caused a synthax error on implementation of the search bar. This is was obvious enough from the error message and quickly fixed.
 * BugFix:  Error on variable name 'categories' in products/views.py. Incorrectly named 'category' and threw error message.
+* BugFix:  Serious issues encountered trying to connect Heroku with AWS's S3 bucket. Many setting configurations were attempted. Solution was found to be an incorrectly assigned BASE_DIR in settings.py. Once this was corrected, static files were transferred to AWS and the deployed site loaded the correct css styles.
 
 
 ### Testing Bugs
 
 * A few bugs were thrown up by the HTML Validator and CSS Validator. The solutions are given above in the **HTML Test** and **CSS Test** Sections.
 
-## Deployment
+## Deployment <a name="deployment"></a>
 
 ---
 
-The site has been deployed on ...
+### Local Deployment <a name="local-deployment"></a>
 
-## Credits
+The site has been deployed and tested locally on gitpod. testhigh
+
+### Remote Deployment <a name="remote-deployment"></a>
+
+The site has been deployed and tested remotely using Heroku and AWS S3 services. testhigh
+
+## Credits <a name="credit"></a>
 
 ---
 
-* Credit 1
+* Credit 1 testhigh
 
 ### Special Thanks
 
