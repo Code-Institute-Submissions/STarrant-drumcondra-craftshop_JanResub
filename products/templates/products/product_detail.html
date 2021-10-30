@@ -18,7 +18,7 @@
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
                 <!-- Product Image -->
                 <div class="div-product-image my-5">
-                    {% if product.image %}
+                    {% if product.item_id.image %}
                         <a href="{{ product.item_id.image.url }}" target="_blank">
                             <img class="card-img-top img-fluid" src="{{ product.item_id.image.url }}" alt="{{ product.item_id.name }}">
                         </a>
