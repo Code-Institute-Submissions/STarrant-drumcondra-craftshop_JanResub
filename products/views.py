@@ -12,6 +12,7 @@ def all_products(request):
     products = Product.objects.all()
     query = None
     categories = None
+    creators = None
     sort = None
     direction = None
 
@@ -33,6 +34,12 @@ def all_products(request):
             categories = request.GET['category'].split(',')
             products = products.filter(item_id__category_id__category_tag__in=categories)
             categories = Category.objects.filter(category_tag__in=categories)
+
+        # CREATOR SELECTION FUNCTIONALITY
+        if 'creator' in request.GET:
+            creators = request.GET['creator'].split(',')
+            products = products.filter(item_id__creator_id__name__in=creators)
+            creators = Creator.objects.filter(name__in=creators)
 
         # SORTING FUNCTIONALITY
         if 'sort' in request.GET:
