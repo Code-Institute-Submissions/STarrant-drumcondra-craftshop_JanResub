@@ -12,6 +12,7 @@ class ProductAdmin(admin.ModelAdmin):
     Tells the Admin which product fields to display.
     """
     list_display = (
+        'id',
         'item_id',
         'sku',
         'salesmargin',
