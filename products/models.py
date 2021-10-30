@@ -71,5 +71,10 @@ class Product(models.Model):
                                  null=True, blank=True)
 
     def __str__(self):
-        ''' Return the product sku name. '''
-        return self.sku
+        ''' Return the product name. '''
+        return self.item_id.name
+    
+    def _get_unit_price(self):
+        """Returns the calculated unit cost of the product"""
+        return (self.item_id.unitcost * (1 + self.salesmargin))
+    unit_price = property(_get_unit_price)
