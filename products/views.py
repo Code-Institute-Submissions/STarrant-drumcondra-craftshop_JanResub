@@ -61,6 +61,7 @@ def all_products(request):
         'products': products,
         'search_term': query,
         'current_categories': categories,
+        'current_creators': creators,
         'current_sorting': current_sorting,
     }
 

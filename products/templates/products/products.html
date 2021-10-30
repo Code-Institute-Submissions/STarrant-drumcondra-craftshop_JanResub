@@ -26,6 +26,13 @@
                             <span>{{ c.category_name }}</span>
                         </a>
                     {% endfor %}
+                    <!-- Product Current Category -->
+                    {% for c in current_creators %}
+                        <span> > </span>
+                        <a class="text-decoration-none" href="{% url 'products' %}?creator={{ c.name }}">
+                            <span>{{ c.name }}</span>
+                        </a>
+                    {% endfor %}
                 </h2>
             </div>
             <!-- HR Separator -->
