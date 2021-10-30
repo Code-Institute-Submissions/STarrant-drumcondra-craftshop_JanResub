@@ -87,10 +87,10 @@
                                                 <!-- Product Price -->
                                                 <p class="leda mb-0 text-left font-weight-bold">€{{ product.item_id.unitcost }}</p>
                                                 <!-- Product Category -->
-                                                {% if product.category_id %}
+                                                {% if product.item_id.category_id %}
                                                     <p class="small-text mt-1 mb-0">
-                                                        <a class="text-muted" href="{% url 'products' %}?category={{ product.category.category_tag }}">
-                                                            <i class="bi bi-collection-fill"></i> {{ product.category_id.category_name }}
+                                                        <a class="text-muted" href="{% url 'products' %}?category={{ product.item_id.category_id.category_tag }}">
+                                                            <i class="bi bi-collection-fill"></i> {{ product.item_id.category_id.category_name }}
                                                         </a>
                                                     </p>
                                                 {% endif %}
