@@ -92,7 +92,7 @@
                                         <div class="row">
                                             <div class="col">
                                                 <!-- Product Price -->
-                                                <p class="leda mb-0 text-left font-weight-bold">€{{ product.item_id.unitcost }}</p>
+                                                <p class="leda mb-0 text-left font-weight-bold">€{{ product.unit_price|floatformat:"2" }}</p>
                                                 <!-- Product Category -->
                                                 {% if product.item_id.category_id %}
                                                     <p class="small-text mt-1 mb-0">
