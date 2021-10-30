@@ -45,12 +45,12 @@
                                     <td>{{ forloop.counter }}</td>
                                     <!-- Item Image -->
                                     <td class="w-25 p-3">
-                                        <img class="img-fluid rounded" src="{{ item.product.image_url }}">
+                                        <img class="img-fluid rounded" src="{{ item.product.item_id.image_url }}">
                                     </td>
                                     <!-- Item Name and Stock Number -->
                                     <td class="py-3">
                                         <p class="my-0">
-                                            <strong>{{ item.product.name }}</strong>
+                                            <strong>{{ item.product.item_id.name }}</strong>
                                         </p>
                                         <p class="my-0 text-muted">
                                             {{ item.product.sku }}
@@ -65,7 +65,7 @@
                                     <!-- Item Cost -->
                                     <td class="py-3">
                                         <p class="my-0">
-                                            € {{ item.product.price }}
+                                            € {{ item.unit_price }}
                                         </p>
                                     </td>
                                     <!-- Total Cost -->
