@@ -14,14 +14,7 @@
     * which prevents any errors 
     */
     function handleEnableDisable(itemId) {
-        console.log("handleEnableDisable run v1.9"); /* testhigh */
         var currentValue = parseInt($(`.id_qty_${itemId}`).val());
-        console.log(itemId); /* testhigh */
-        console.log(currentValue); /* testhigh */
-        console.log(`line 20   .id_qty_${itemId}`); /* testhigh */
-        console.log(parseInt($(`.id_qty_${itemId}`))); /* testhigh */
-        console.log(($(`.id_qty_${itemId}`))); /* testhigh */
-        console.log((`line 23    .id_qty_${itemId}`)); /* testhigh */
         var minusDisabled = currentValue < 2;
         var plusDisabled = currentValue > 98;
 
@@ -31,7 +24,6 @@
 
     // Ensure proper enabling/disabling of all inputs on page load
     var allQtyInputs = $('.qty_input');
-    console.log("Check Inputs Enabled Disabled"); /* testhigh */
     for(var i = 0; i < allQtyInputs.length; i++){
         var itemId = $(allQtyInputs[i]).data('item_id');
         handleEnableDisable(itemId);
@@ -45,17 +37,11 @@
 
     // Increment quantity
     $('.increment-qty').click(function(e) {
-        console.log("Increment Quantity run"); /* testhigh */
         e.preventDefault();
         var itemId = $(this).data('item_id');
-        console.log(itemId); /* testhigh */
         var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-        console.log(closestInput); /* testhigh */
         var allQuantityInputs = $(`.input-group-${itemId} input[name='quantity']`);
-        console.log(allQuantityInputs); /* testhigh */
         var currentValue = parseInt($(closestInput).val());
-        console.log(currentValue); /* testhigh */
-        //$(allQuantityInputs).val(currentValue + 1);
         if (currentValue < 99){
             parseInt($(`.id_qty_${itemId}`).val(currentValue + 1));
         }
@@ -64,13 +50,11 @@
 
     // Decrement quantity
     $('.decrement-qty').click(function(e) {
-        console.log("Decrement Quantity run"); /* testhigh */
         e.preventDefault();
         var itemId = $(this).data('item_id');
         var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
         var allQuantityInputs = $(`.input-group-${itemId} input[name='quantity']`);
         var currentValue = parseInt($(closestInput).val());
-        //$(allQuantityInputs).val(currentValue - 1);
         if (currentValue > 1) {
             parseInt($(`.id_qty_${itemId}`).val(currentValue - 1));
         }
