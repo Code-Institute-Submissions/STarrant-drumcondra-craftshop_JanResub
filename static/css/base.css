@@ -20,6 +20,7 @@ font-family: 'Roboto Condensed', sans-serif; */
 /* .background-overlay             -1   */
 /* .fixed-top-desktop-only       1000   */
 /* .header                      99999   */
+/* .message-container          999999   */
 
 
 
@@ -255,9 +256,22 @@ nav a {
     z-index: -1;
 }
 
+/* Bootstrap Toasts */
 
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 999999;
+}
 
+.custom-toast {   /* testhigh - not used yet  */
+    overflow: visible;
+}
 
+.toast-capper {   /* testhigh - not used yet  */
+    height: 2px;
+}
 
 
 
