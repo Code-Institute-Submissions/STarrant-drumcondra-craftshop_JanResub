@@ -1,0 +1,79 @@
+<script type="text/javascript">
+    /* 
+    * IMPORTANT - CODE ATTTIBUTION
+    * The original script was written by Chris Z, ckz8780, https://github.com/ckz8780.
+    * Code from 'Code Institute - Boutique Ado project' - https://github.com/Code-Institute-Solutions/boutique_ado_v1.
+    * Little credit can be taken for his work in the code below.
+    * It has been adapted to work with this project but no credit can be claimed for the overall functionality.
+    */
+
+    // BORROWED CODE BEGINS HERE.
+    /* 
+    * Disable +/- buttons outside 1-99 range.
+    * If no size is passed to the function, the parameter will have a value of undefined by default,
+    * which prevents any errors 
+    */
+    function handleEnableDisable(itemId) {
+        console.log("handleEnableDisable run v1.9"); /* testhigh */
+        var currentValue = parseInt($(`.id_qty_${itemId}`).val());
+        console.log(itemId); /* testhigh */
+        console.log(currentValue); /* testhigh */
+        console.log(`line 20   .id_qty_${itemId}`); /* testhigh */
+        console.log(parseInt($(`.id_qty_${itemId}`))); /* testhigh */
+        console.log(($(`.id_qty_${itemId}`))); /* testhigh */
+        console.log((`line 23    .id_qty_${itemId}`)); /* testhigh */
+        var minusDisabled = currentValue < 2;
+        var plusDisabled = currentValue > 98;
+
+        $(`.decrement-qty_${itemId}`).prop('disabled', minusDisabled);
+        $(`.increment-qty_${itemId}`).prop('disabled', plusDisabled);
+    }
+
+    // Ensure proper enabling/disabling of all inputs on page load
+    var allQtyInputs = $('.qty_input');
+    console.log("Check Inputs Enabled Disabled"); /* testhigh */
+    for(var i = 0; i < allQtyInputs.length; i++){
+        var itemId = $(allQtyInputs[i]).data('item_id');
+        handleEnableDisable(itemId);
+    }
+
+    // Check enable/disable every time the input is changed
+    $('.qty_input').change(function() {
+        var itemId = $(this).data('item_id');
+        handleEnableDisable(itemId);
+    });
+
+    // Increment quantity
+    $('.increment-qty').click(function(e) {
+        console.log("Increment Quantity run"); /* testhigh */
+        e.preventDefault();
+        var itemId = $(this).data('item_id');
+        console.log(itemId); /* testhigh */
+        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+        console.log(closestInput); /* testhigh */
+        var allQuantityInputs = $(`.input-group-${itemId} input[name='quantity']`);
+        console.log(allQuantityInputs); /* testhigh */
+        var currentValue = parseInt($(closestInput).val());
+        console.log(currentValue); /* testhigh */
+        //$(allQuantityInputs).val(currentValue + 1);
+        if (currentValue < 99){
+            parseInt($(`.id_qty_${itemId}`).val(currentValue + 1));
+        }
+        handleEnableDisable(itemId);
+    });
+
+    // Decrement quantity
+    $('.decrement-qty').click(function(e) {
+        console.log("Decrement Quantity run"); /* testhigh */
+        e.preventDefault();
+        var itemId = $(this).data('item_id');
+        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+        var allQuantityInputs = $(`.input-group-${itemId} input[name='quantity']`);
+        var currentValue = parseInt($(closestInput).val());
+        //$(allQuantityInputs).val(currentValue - 1);
+        if (currentValue > 1) {
+            parseInt($(`.id_qty_${itemId}`).val(currentValue - 1));
+        }
+        handleEnableDisable(itemId);
+    });
+</script>
