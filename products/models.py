@@ -57,8 +57,6 @@ class Item(models.Model):
 
 # Products Model
 class Product(models.Model):
-    # item_id = models.ForeignKey('Item', null=True, blank=True,
-    #                             on_delete=models.SET_NULL)
     item_id = models.OneToOneField(
         Item,
         on_delete=models.CASCADE,
