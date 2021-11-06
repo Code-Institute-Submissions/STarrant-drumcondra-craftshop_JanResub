@@ -36,12 +36,20 @@ class Order(models.Model):
     def update_total(self):
         """
         Update grand total each time a line item is added,
-        accounting for delivery costs.
+        update the order_items_ship_in_packet flag to ensure
+        all items will ship in a single packet,
+        update the total order_weight_g with the weight of
+        the new line item,
+        recalculate the delivery cost.
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
-        self.order_weight_g = self.lineitems.aggregate(Sum('lineitem_weight_g'))['lineitem_weight_g__sum']
-        # Source for use of aggregate(BoolAnd) - https://django.readthedocs.io/en/stable/ref/contrib/postgres/aggregates.html
-        self.order_items_ship_in_packet = self.lineitems.aggregate(BoolAnd('lineitem_ship_in_packet'))['lineitem_ship_in_packet']
+        self.order_total = self.lineitems.aggregate(Sum(
+            'lineitem_total'))['lineitem_total__sum']
+        self.order_weight_g = self.lineitems.aggregate(Sum(
+            'lineitem_weight_g'))['lineitem_weight_g__sum']
+        # Source for use of aggregate(BoolAnd)
+        # https://django.readthedocs.io/en/stable/ref/contrib/postgres/aggregates.html
+        self.order_items_ship_in_packet = self.lineitems.aggregate(
+            BoolAnd('lineitem_ship_in_packet'))['lineitem_ship_in_packet']
         self.delivery_cost = 0  # calculation for delivery cost to be added testhigh
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
@@ -60,10 +68,27 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
-    product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
+    order = models.ForeignKey(
+                Order,
+                null=False,
+                blank=False,
+                on_delete=models.CASCADE,
+                related_name='lineitems'
+                )
+    product = models.ForeignKey(
+                Product,
+                null=False,
+                blank=False,
+                on_delete=models.CASCADE
+                )
     quantity = models.IntegerField(null=False, blank=False, default=0)
-    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    lineitem_total = models.DecimalField(
+                max_digits=6,   
+                decimal_places=2,
+                null=False,
+                blank=False,
+                editable=False
+                )
     lineitem_weight_g = models.IntegerField(null=False, blank=False)
     lineitem_ship_in_packet = models.BooleanField(default=False)
 
@@ -72,7 +97,9 @@ class OrderLineItem(models.Model):
         Override the original save method to set the lineitem total
         and update the order total.
         """
-        self.lineitem_total = self.product.item_id.unitcost * self.product.salesmargin * self.product.quantity
+        self.lineitem_total = (self.product.item_id.unitcost
+                               * self.product.salesmargin
+                               * self.product.quantity)
         super().save(*args, **kwargs)
 
     def __str__(self):
