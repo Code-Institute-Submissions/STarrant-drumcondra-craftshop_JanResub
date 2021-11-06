@@ -28,5 +28,7 @@ class OrderAdmin(admin.ModelAdmin):
                     'order_weight_g', 'order_items_ship_in_packet',
                     'order_total', 'delivery_cost', 'grand_total')
 
+    ordering = ('-order_date',)
+
 
 admin.site.register(Order, OrderAdmin)
