@@ -56,6 +56,10 @@ INSTALLED_APPS = [
     'storages',
     # checkout app
     'checkout',
+    # Other Apps - crispy forms
+    'crispy_forms',
+    # Other Apps - crispy forms - bootstrap 5 Template Pack
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -69,6 +73,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'drumcondra_craftshop.urls'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 TEMPLATES = [
     {
@@ -87,9 +95,15 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # Context processor for Media Files
+                'django.template.context_processors.media',
                 # Context processor for Shopping Basket
                 'basket.contexts.basket_contents',
             ],
+            # 'builtins': [
+            #     'crispy_forms.templatetags.crispy_forms_tags',
+            #     'crispy_forms.templatetags.crispy_forms_fields',
+            # ]
         },
     },
 ]
