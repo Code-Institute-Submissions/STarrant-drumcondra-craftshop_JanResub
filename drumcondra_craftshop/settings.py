@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     # Other Apps - crispy forms
     'crispy_forms',
     # Other Apps - crispy forms - bootstrap 5 Template Pack
-    'crispy_bootstrap5',
+    # 'crispy_bootstrap5', testhigh
 ]
 
 MIDDLEWARE = [
@@ -73,10 +73,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'drumcondra_craftshop.urls'
-
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-
-CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 TEMPLATES = [
     {
@@ -100,10 +96,10 @@ TEMPLATES = [
                 # Context processor for Shopping Basket
                 'basket.contexts.basket_contents',
             ],
-            # 'builtins': [
-            #     'crispy_forms.templatetags.crispy_forms_tags',
-            #     'crispy_forms.templatetags.crispy_forms_fields',
-            # ]
+            'builtins': [   # testhigh
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
