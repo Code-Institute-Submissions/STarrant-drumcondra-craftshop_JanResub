@@ -24,9 +24,7 @@ def add_to_basket(request, item_id):
         basket[item_id] += quantity
     else:
         basket[item_id] = quantity
-        messages.success(request, f'{product.item_id.name} added to your bag.') # testhigh  Code here not working.
-        messages.success(request, f'Added {product.name} to your bag') # testhigh
-        messages.success(request, 'Hello!') # testhigh
+        messages.success(request, f'Added {product.item_id.name} to your basket') # testhigh - working now but not sure why!!!
 
     request.session['basket'] = basket
     return redirect(redirect_url)
