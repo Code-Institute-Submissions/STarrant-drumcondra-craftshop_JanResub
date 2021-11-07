@@ -73,7 +73,10 @@ body {
     font-weight: 700;
 }
 
-.dc-banner-button-text {
+.dc-banner-button-text,
+.dc-banner-button-text:active,
+.dc-banner-button-text:hover,
+.dc-banner-button-text:focus {
     text-decoration: none;
     color: #fff;
 }
@@ -110,6 +113,7 @@ body {
     box-shadow: 0 2px #666 !important;
     border-radius: 0.5rem !important;
 }
+
 
 
 .text-black {
