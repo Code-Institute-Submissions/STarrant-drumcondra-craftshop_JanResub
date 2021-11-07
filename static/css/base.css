@@ -175,7 +175,7 @@ body {
     background-color: #92374D !important;
     color: #ffffff !important;
     border: 2px solid #4a1c28 !important;
-    box-shadow: 0 9px #999 !important;
+    box-shadow: 0 4px #999 !important;
     border-radius: 0.5rem !important;
 }
 
@@ -183,7 +183,7 @@ body {
     background-color: #c76b82 !important;
     color: #ffffff !important;
     border: 2px solid #4a1c28 !important;
-    box-shadow: 0 5px #666 !important;
+    box-shadow: 0 2px #666 !important;
     transform: translateY(4px);
 }
 
@@ -191,7 +191,7 @@ body {
     background-color: #c76b82 !important;
     color: #ffffff !important;
     border: 2px solid #4a1c28 !important;
-    box-shadow: 0 9px #999 !important;
+    box-shadow: 0 4px #999 !important;
     border-radius: 0.5rem !important;
 }
 
@@ -199,7 +199,7 @@ body {
     background-color: #c76b82 !important;
     color: #ffffff !important;
     border: 2px solid #4a1c28 !important;
-    box-shadow: 0 5px #666 !important;
+    box-shadow: 0 2px #666 !important;
     border-radius: 0.5rem !important;
 }
 
@@ -383,7 +383,7 @@ nav a {
         left: 0;
         z-index: 1000;
     }
-    
+
     /* CODE CREDIT
     CSS Tricks
     Chris Coyier
