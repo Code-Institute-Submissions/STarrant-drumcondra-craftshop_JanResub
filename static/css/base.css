@@ -272,10 +272,10 @@ nav a {
 
 
 /* Footer */
-.footer-bg-1 { background-color: #c76b82; }
-.footer-bg-2 { background-color: #92374d; }
-.footer-bg-3 { background-color: #5c2331; }
-.footer-bg-4 { background-color: #37151e; }
+.dc-footer-bg-1 { background-color: #c76b82; }
+.dc-footer-bg-2 { background-color: #92374d; }
+.dc-footer-bg-3 { background-color: #5c2331; }
+.dc-footer-bg-4 { background-color: #37151e; }
 
 
 
@@ -283,18 +283,18 @@ nav a {
     background-color: #293132;
 }*/
 
-.footer-heading,
-.footer-icon {
+.dc-footer-heading,
+.dc-footer-icon {
     color: #f1dae0;
 }
 
-.footer-text {
+.dc-footer-text {
     color: #f1dae0;
     font-family: 'Roboto', sans-serif;
     font-size: 1em;
 }
 
-.footer-list-group {
+.dc-footer-list-group {
     list-style: none;
     color: #f1dae0;
     background-color: #5c2331;
@@ -302,7 +302,7 @@ nav a {
     font-size: 1em;
 }
 
-.footer-list-group-item {
+.dc-footer-list-group-item {
     border: none;
     color: #f1dae0;
     background-color: #5c2331;
@@ -310,28 +310,17 @@ nav a {
     font-size: 1em;
 }
 
-.footer-anchor{
+.dc-footer-anchor{
     color: #f1dae0;
     text-decoration: none;
 }
 
-#footer-disclaimer p{
+#dc-footer-disclaimer p{
     color: #f1dae0;
     font-weight: 500;
     letter-spacing: 2px;
 }
 
-
-/* Product Page Stylings */
-.body-overlay {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background: #fff;
-    z-index: -1;
-}
 
 /* Bootstrap Toasts */
 
@@ -353,7 +342,7 @@ nav a {
 
 
 /* Hover.css */
-.footer-anchor:hover{
+.dc-footer-anchor:hover{
     color: #e3b5c1;
     text-decoration: none;
     transition: 0.3s;
