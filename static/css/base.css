@@ -32,10 +32,31 @@ html {
   scroll-behavior: smooth;
 }
 
-* {
-    /*color: #293132;*/
-    color: #293132;  /* TESTHIGH */
+body {
+    background: url('/media/gregory-dalleau-KT4dOfvtZSg-unsplash-lowres.jpg');
+    background-size: cover;
+    height: calc(100vh - 172px);
+    color: #293132;
     font-family: 'Roboto', sans-serif;
+}
+
+* {
+    color: #293132;
+    font-family: 'Roboto', sans-serif;
+}
+
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
+.header-bg {
+    background-color: #fae6dc;
 }
 
 .text-black {
@@ -52,13 +73,13 @@ html {
 
 .hr-light {
     /* border-bottom: 1px solid #8C5383; */
-    border-bottom: 1px solid red;   /* TestHigh */
+    border-bottom: 1px solid red;   /* testhigh */
     box-shadow: 1px 1px 1px rgba(0,0,0,0.6);
 }
 
 .hr-heavy {
     /* border-bottom: 3px solid #8C5383; */
-    border-bottom: 1px solid red;   /* TestHigh */
+    border-bottom: 1px solid red;   /* testhigh */
     box-shadow: 1px 2px 2px rgba(0,0,0,0.6);
 }
 
