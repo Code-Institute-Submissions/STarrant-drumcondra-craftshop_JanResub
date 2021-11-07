@@ -190,7 +190,10 @@ body {
     border-radius: 0.5rem !important;
 }
 
-
+.btn-dc-standard span,
+.btn-dc-standard span i {
+    color: #ffffff
+}
 
 
 /* Heading */
