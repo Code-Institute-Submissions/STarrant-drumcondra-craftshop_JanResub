@@ -11,7 +11,7 @@
 {% endblock page_header %}
 
 {% block content %}
-    <div class="background-overlay"></div>
+    <div class="dc-background-overlay"></div>
 
     <div class="container-fluid">
         <div class="row">
@@ -70,9 +70,9 @@
                     <!-- Start of Product Cards Container -->
                     <div class="row">
                         {% for product in products %}
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 pb-5">
                                 <!-- Product Card -->
-                                <div class="card h-100 border-0">
+                                <div class="card h-100 border-0 dc-product-card">
                                     <!-- Product Image -->
                                     {% if product.item_id.image %}
                                         <a href="{% url 'product_detail' product.id %}">

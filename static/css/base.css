@@ -41,7 +41,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.dc-overlay {
+.dc-background-overlay {
 	height: 100%;
 	width: 100%;
 	top: 0;
@@ -190,7 +190,7 @@ body {
     border-radius: 0.5rem !important;
 }
 
-/* Enter Shop Button Styling */
+
 
 
 /* Heading */
@@ -222,28 +222,15 @@ nav a {
     font-weight: 400;
 }
 
-/* Floating nav button and arrow up */
-
-.floating-button {
-	position:fixed;
-	width:60px;
-	height:60px;
-	bottom:20px;
-	right:20px;
-	background-color:rgba(146, 55, 77, 0.75);
-	color:#FFF;
-	border-radius:30px;
-	text-align:center;
-    box-shadow: 2px 2px 3px #999;
-    z-index: 9999999;
-}
-
-.fa-arrow-up {
-    color: rgba(255,255,255,0.75);
-    font-size: 40px;
-}
-
 /* Main Sections */
+
+.dc-product-card {
+    background-color: #fff !important;
+    color: #ffffff !important;
+    border: 1px solid #999 !important;
+    box-shadow: 0 2px #666 !important;
+}
+
 
 /* Scroll Margin Added to prevent anchors running underneath the sticky header */
 /* Credit:  https://gomakethings.com/how-to-prevent-anchor-links-from-scrolling-behind-a-sticky-header-with-one-line-of-css/ written by Chris Ferdinandi*/
