@@ -28,8 +28,16 @@ font-family: 'Roboto Condensed', sans-serif; */
 
 /* General */
 html {
-  height: 100%;
-  scroll-behavior: smooth;
+    height: 100%;
+    scroll-behavior: smooth;
+    /* CODE CREDIT
+    CSS Tricks
+    Chris Coyier
+    https://css-tricks.com/fixed-headers-on-page-links-and-overlapping-content-oh-my/
+    Scroll padding top fix.
+    */
+    --top-spacing: 100px;
+    scroll-padding-top: var(--top-spacing);
 }
 
 body {
@@ -39,6 +47,7 @@ body {
     height: calc(100vh - 172px);
     color: #293132;
     font-family: 'Roboto', sans-serif;
+    margin: var(--top-spacing) auto;
 }
 
 .dc-background-overlay {
@@ -47,7 +56,7 @@ body {
 	top: 0;
 	left: 0;
 	position: fixed;
-	background:rgba(255,255,255,0.8);
+	background:rgba(255,255,255,0.9);
 	z-index: -1;
 }
 
@@ -241,9 +250,7 @@ nav a {
 
 /* Scroll Margin Added to prevent anchors running underneath the sticky header */
 /* Credit:  https://gomakethings.com/how-to-prevent-anchor-links-from-scrolling-behind-a-sticky-header-with-one-line-of-css/ written by Chris Ferdinandi*/
-#dc-main-content {
-    scroll-margin-top: 172px;   /* Small screens 172px header */
-}
+
 
 
 
@@ -369,15 +376,27 @@ nav a {
 }
 
 @media only screen and (min-width: 991.98px) {
-   .fixed-top-desktop-only {
-       position: fixed;
-       top: 0;
-       right: 0;
-       left: 0;
-       z-index: 1000;
-   }
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1000;
+    }
+    
+    /* CODE CREDIT
+    CSS Tricks
+    Chris Coyier
+    https://css-tricks.com/fixed-headers-on-page-links-and-overlapping-content-oh-my/
+    Scroll padding top fix.
+    */
+    html {
+        --top-spacing: 172px;
+        scroll-padding-top: var(--top-spacing);
+    }
+  
+    body {
+        margin: var(--top-spacing) auto;
+    }
 
-   .header-container {
-       padding-top: 164px;     /*  TEST HIGH - Update here when header height is calcalated correctly.*/
-   }
 }
