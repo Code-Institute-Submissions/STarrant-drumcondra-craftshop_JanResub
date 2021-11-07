@@ -7,20 +7,19 @@
             <div class="col"></div>
         </div>
     </div>
-
-{% endblock %}
+{% endblock page_header%}
 
 {% block content %}
     <div class="container h-100">
         <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="display 4 dc-logo-font dc-text-black">Supporting your local artisans</h1>
-                <div class="div">
+            <div class="col-10 offset-1 col-md-8 offset-md-2 my-auto align-self-center dc-banner-bg">
+                <h1 class="h3 dc-banner-font mt-4">Supporting your local artisans...</h1>
+                <div class="d-flex justify-content-center dc-btn-entershop btn btn-lg rounded mb-4">
                     <h4>
-                        <a href="{% url 'products' %}" class="dc-shop-button btn btn-lg rounded-2 text-uppercase p-3">Enter Store</a>
+                        <a href="{% url 'products' %}" class="text-uppercase dc-banner-button-text p-3">Enter Shop</a>
                     </h4>
                 </div>
             </div>
         </div>
     </div>
-{% endblock %}
+{% endblock content%}

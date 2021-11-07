@@ -3,7 +3,7 @@ h1 {
 }
 
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Andada+Pro&family=Roboto+Condensed:wght@300&family=Roboto:wght@100;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:wght@100;400;700&family=Roboto+Condensed:wght@300&family=Roboto:wght@100;400;700&display=swap');
 
 /* font-family: 'Andada Pro', serif;
 font-family: 'Roboto', sans-serif;
@@ -35,9 +35,20 @@ html {
 body {
     background: url('/media/gregory-dalleau-KT4dOfvtZSg-unsplash-lowres.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
     height: calc(100vh - 172px);
     color: #293132;
     font-family: 'Roboto', sans-serif;
+}
+
+.dc-overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background:rgba(255,255,255,0.8);
+	z-index: -1;
 }
 
 * {
@@ -45,19 +56,61 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.overlay {
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: white;
-	z-index: -1;
+.header-bg {
+    background-color: #fff;
 }
 
-.header-bg {
-    background-color: #fae6dc;
+/* Main Banner Styling */
+.dc-banner-bg {
+    background-color: rgba(255,255,255,0.75);
+    border: 1px solid #4a1c28 !important;
+    box-shadow: 2px 2px #666 !important;
+    border-radius: 1rem !important;
 }
+
+.dc-banner-font {
+    font-family: 'Andada Pro', serif;
+    font-weight: 700;
+}
+
+.dc-banner-button-text {
+    text-decoration: none;
+    color: #fff;
+}
+
+.dc-btn-entershop {
+    background-color: #92374D !important;
+    color: #ffffff !important;
+    border: 1px solid #4a1c28 !important;
+    box-shadow: 0 4px #999 !important;
+    border-radius: 0.5rem !important;
+}
+
+.dc-btn-entershop:active {
+    background-color: #c76b82 !important;
+    color: #ffffff !important;
+    border: 1px solid #4a1c28 !important;
+    box-shadow: 1px #666 !important;
+    border-radius: 0.5rem !important;
+    transform: translateY(2px);
+}
+
+.dc-btn-entershop:hover {
+    background-color: #c76b82 !important;
+    color: #ffffff !important;
+    border: 1px solid #4a1c28 !important;
+    box-shadow: 0 4px #999 !important;
+    border-radius: 0.5rem !important;
+}
+
+.dc-btn-entershop:focus {
+    background-color: #c76b82 !important;
+    color: #ffffff !important;
+    border: 1px solid #4a1c28 !important;
+    box-shadow: 0 2px #666 !important;
+    border-radius: 0.5rem !important;
+}
+
 
 .text-black {
     color: #000 !important;
@@ -93,9 +146,9 @@ body {
 }
 
 .hr_div{
-    width:100%;
+    width: 100%;
     padding: 0;
-    margin:0;
+    margin: 0;
 }
 
 .bg_color1 {background-color:    #92374D;}    /* Color 1 - Solid Pink */
@@ -136,6 +189,9 @@ body {
     box-shadow: 0 5px #666 !important;
     border-radius: 0.5rem !important;
 }
+
+/* Enter Shop Button Styling */
+
 
 /* Heading */
 
