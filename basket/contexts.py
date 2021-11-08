@@ -10,6 +10,7 @@ def basket_contents(request):
     item_count = 0
     unit_price = 0.00
     line_value = 0.00
+
     basket = request.session.get('basket', {})
 
     for item_id, quantity in basket.items():
@@ -30,6 +31,8 @@ def basket_contents(request):
         "basket_items_list": basket_items_list,
         "total_value": total_value,
         "item_count": item_count,
+        "delivery_cost": "TBA",
+        "grand_total": "TBA",
     }
 
     return context
