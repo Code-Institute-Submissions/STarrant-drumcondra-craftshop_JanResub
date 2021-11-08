@@ -138,15 +138,12 @@ body {
   }
 
 .hr-light {
-    /* border-bottom: 1px solid #8C5383; */
-    border-bottom: 1px solid red;   /* testhigh */
-    box-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+    border-bottom: 1px solid #8C5383;
 }
 
 .hr-heavy {
-    /* border-bottom: 3px solid #8C5383; */
-    border-bottom: 1px solid red;   /* testhigh */
-    box-shadow: 1px 2px 2px rgba(0,0,0,0.6);
+    border-bottom: 2px solid #8C5383;
+    box-shadow: 0 2px 0 0 rgba(0,0,0,0.6);
 }
 
 /*Credit to Alessandro Incarnati for idea of doing multicolored hr. https://stackoverflow.com/questions/29733780/how-to-style-hr-to-have-multiple-colors*/
