@@ -181,3 +181,12 @@
     </div>
     <!-- End Container -->
 {% endblock content %}
+
+{% block postload_js %}
+
+    {{ black.super }}
+
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+
+{% endblock postload_js %}
