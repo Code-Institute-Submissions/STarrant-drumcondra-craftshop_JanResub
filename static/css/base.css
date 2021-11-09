@@ -237,6 +237,7 @@ nav a {
 
 /* Main Sections */
 
+/* Product Pages */
 .dc-product-card {
     background-color: #fff !important;
     color: #ffffff !important;
@@ -244,12 +245,18 @@ nav a {
     box-shadow: 0 2px #666 !important;
 }
 
+/* Forms */
+.fieldset-label {
+    position: relative;
+    right: 5px;
+    color: #4A5899;
 
-/* Scroll Margin Added to prevent anchors running underneath the sticky header */
-/* Credit:  https://gomakethings.com/how-to-prevent-anchor-links-from-scrolling-behind-a-sticky-header-with-one-line-of-css/ written by Chris Ferdinandi*/
+}
 
-
-
+#id_address_country {
+    width: 203px;
+    height: 30px;
+}
 
 
 
