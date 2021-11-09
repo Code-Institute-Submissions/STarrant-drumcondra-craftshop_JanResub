@@ -98,9 +98,50 @@ class OrderLineItem(models.Model):
         and update the order total.
         """
         self.lineitem_total = (self.product.item_id.unitcost
-                               * self.product.salesmargin
-                               * self.product.quantity)
+                               self.product.salesmargin
+                               self.product.quantity)
         super().save(*args, **kwargs)
 
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.order.order_number}'
+
+
+class ShippingZone(models.Model):
+    """
+    ShippingZone model contains the main data fields to allow a shipping
+    calculation of An Post (Irish Postal Service) shipping costs.
+    There are five shipping zones - Ireland, UK, EU, AU/NZ and Rest of World.
+    There are two package sizes and associated rates, packet and parcel.
+    Both package and parcel have limits to shipping weights.
+    """
+    shipping_zone_no = models.IntegerField(null=False, blank=False, default=0)
+    shipping_zone_name = models.IntegerField(null=False, blank=False, default=0)
+    country_list = models.CharField(max_length=80, null=False, blank=False)
+    packet_limit_g = models.IntegerField(null=False, blank=False, default=0)
+    parcel_limit_g = models.IntegerField(null=False, blank=False, default=0)
+    parcel_excess_limit_g = models.IntegerField(null=False, blank=False, default=0)
+    parcel_excess_rate = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    parcel_excess_basecost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    packet_cost_00100g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    packet_cost_00250g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    packet_cost_00500g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    packet_cost_01000g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    packet_cost_01500g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    packet_cost_02000g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    parcel_cost_00100g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    parcel_cost_00250g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    parcel_cost_00500g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    parcel_cost_01000g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    parcel_cost_01500g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    parcel_cost_02000g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    parcel_cost_02500g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    parcel_cost_03000g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    parcel_cost_03500g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    parcel_cost_04000g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    parcel_cost_04500g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    parcel_cost_05000g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    parcel_cost_15000g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    parcel_cost_20000g = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+
+    def __str__(self):
+        return f'SKU {self.shipping_zone_name}'
