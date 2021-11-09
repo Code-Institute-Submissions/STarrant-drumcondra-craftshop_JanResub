@@ -2,6 +2,7 @@
 {% load static %}
 <!--  load basket_tools   testhigh -->
 
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock extra_css %}
@@ -15,38 +16,110 @@
 {% endblock page_header%}
 
 {% block content %}
-    <div class="background-overlay"></div>
+    <div class="dc-background-overlay"></div>
     <div class="container">
         <!-- Shopping Checkout Header -->
         <div class="row">
-            <div class="col">
-                <h2 class="dc-logo-font">checkout</h2>
+            <div class="col-12">
+                <h2 class="dc-logo-font">Checkout</h2>
                 <!-- HR Separator -->
-                <div class="hr-heavy"></div>
+                <div class="hr-heavy mb-5"></div>
             </div>
         </div>
-        <!-- Shopping Checkout Form -->
+        <!-- Table of Items to Purchase -->
         <div class="row">
-            <div class="col-12 col-lg-6">
+            <!-- Product Details Header -->
+            <div class="col-7">
+                <h6>Description</h3>
+            </div>
+            <!-- Product Quantity Header -->
+            <div class="col-1">
+                <h6>Qty</h3>
+            </div>
+            <!-- Product Price -->
+            <div class="col-2 text-end">
+                <h6>Unit Cost</h3>
+            </div>
+            <!-- Product Subtotal -->
+            <div class="col-2 text-end">
+                <h6>Subtotal</h3>
+            </div>
+            <div class="hr-light"></div>
+            {% for item in basket_items_list %}
+                <!-- Product Image -->
+                <div class="col-2 mb-1">
+                    <a href="{% url 'product_detail' item.product.id %} ">
+                        {% if item.product.item_id.image %}
+                            <img class="w-100" src="{{ item.product.item_id.image.url }}" alt="{{ product.item_id.name }}">
+                        {% else %}
+                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.item_id.name }}">
+                        {% endif %}
+                    </a>
+                </div>
+                <!-- Product Details -->
+                <div class="col-5">
+                    <p class="my-0"><strong>{{ item.product.item_id.name }}</strong></p>
+                    <p class="my-0">{{ item.quantity }}</p>
+                </div>
+                <!-- Product Quantity -->
+                <div class="col-1">
+                    <p class="my-0">{{ item.quantity }}</p>
+                </div>
+                <!-- Product Price -->
+                <div class="col-2 text-end">
+                    <p class="m-0 small text-muted">
+                        € {{ item.unit_price | floatformat:2 }}</p>
+                </div>
+                <!-- Product Subtotal -->
+                <div class="col-2 text-end">
+                    <p class="m-0 small">€ {{ item.line_value | floatformat:2 }}</p>
+                </div>
+                <div class="hr-light"></div>
+            {% endfor %}
+            <!-- Table Totals -->
+            <div class="hr-heavy"></div>
+            <div class="container">
+                <div class="row text-end">
+                    <div class="col-6 offset-2">
+                        <p class="my-0">Goods Value</p>
+                        <p class="my-0">Delivery</p>
+                        <p class="my-0">Grand Total</p>
+                    </div>
+                    <div class="col-1">
+                        <p class="m-0 text-end">€</p>
+                        <p class="m-0 text-end">€</p>
+                        <p class="m-0 text-end">€</p>
+                    </div>
+                    <div class="col-3">
+                        <p class="my-0 text-end">{{ total_value | floatformat:2 }}</p>
+                        <p class="my-0 text-end">{{ delivery_cost }}</p>
+                        <p class="my-0 text-end">{{ grand_total}}</p>
+                    </div>
+                </div>   
+            </div>
+
+
+            <!-- Shopping Checkout Form -->
+            <div class="col-12">
                 <p>Please fill out the form below to complete your order.</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <!-- Order Personal Information -->
-                    <fieldset class="rounded px-3 mb-5">
+                    <fieldset class="rounded px-3 mb-2">
                         <legend class="fieldset-label small px-2 w-auto">Your Contact Details:</legend>
-                        {{ order_form.full_name | as_crispy_field }}
+                        {{ order_form.full_name | as_crispy_field  }}
                         {{ order_form.email | as_crispy_field }}
                         {{ order_form.phone_no | as_crispy_field }}
                     </fieldset>
                     <!-- Order Delivery Information -->
-                    <fieldset class="rounded px-3 mb-5">
+                    <fieldset class="rounded px-3 mb-2">
                         <legend class="fieldset-label small px-2 w-auto">Your Delivery Address:</legend>
                         {{ order_form.address_street_1 | as_crispy_field }}
                         {{ order_form.address_street_2 | as_crispy_field }}
                         {{ order_form.address_town_city | as_crispy_field }}
                         {{ order_form.address_postcode | as_crispy_field }}
                         {{ order_form.address_country | as_crispy_field }}
-                        <div class="form-check form-check-inline float-rigt mr-0">
+                        <div class="form-check form-check-inline float-right mr-0">
                             {% if user.is_authenticated %}
                                 <label class="form-check-label" for="id-save-info">Save to your profile</label>
                                 <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
@@ -58,43 +131,8 @@
                             {% endif %}
                         </div>
                     </fieldset>
-                    <!-- Table of Items -->
-                    {% for item in basket_item %}
-                        <!-- Product Image -->
-                        <div class="col-2 mb-1">
-                            <a href="{% url 'product_detail' item.product.id %}">
-                                {% if item.product.item_id.image %}
-                                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.item_id.name }}">
-                                {% else %}
-                                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.item_id.name }}">
-                                {% endif %}
-                            </a>
-                        </div>
-                        <!-- Product Details and Quantity -->
-                        <div class="col-7">
-                            <p class="my-0"><strong>{{ item.product.item_id.name }}</strong></p>
-                            <p class="my-0">{{ item.quantity }}</p>
-                        </div>
-                        <!-- Product Price and Subtotal -->
-                        <div class="col-3 text-right">
-                            <p class="my-0 small text-muted">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
-                        </div>
-                    {% endfor %}
-                    <hr class="hr-heavy my-0">
-                    <div class="row text-right">
-                        <div class="col-7 offset-2">
-                            <p class="my-0">Order Total</p>
-                            <p class="my-0">Delivery</p>
-                            <p class="my-0">Grand Total</p>
-                        </div>
-                    </div>
-                    <div class="row text-right">
-                        <div class="col-7 offset-2">
-                            <p class="my-0">€{{ total | floatformat:2 }}</p>
-                            <p class="my-0">€{{ delivery | floatformat:2 }}</p>
-                            <p class="my-0">€{{ grand_total | floatformat:2 }}</p>
-                        </div>
-                    </div>
+                    
+                    
 
 
 
@@ -109,9 +147,9 @@
                     </fieldset>
 
                     <!-- Form Completion Buttons -->
-                    <div class="submit-button text-right mt-5 mb-2">
+                    <div class="submit-button text-end mt-5 mb-2">
                         <!-- Back to shopping basket button -->
-                        <a href="{% url 'view_basket' %}" class="btn btn-outline rounded-0"><!-- testhigh revisit class here -->
+                        <a href="{% url 'view_basket' %}" class="btn btn-dc-standard rounded-0"><!-- testhigh revisit class here -->
                             <span>
                                 Review your Shopping Basket
                             </span>
@@ -120,22 +158,26 @@
                             </span>
                         </a>
                         <!-- Complete Order Button -->
-                        <button id="submit-button" class="btn btn-black rounded-0"><!-- testhigh revisit class here -->
+                        <button id="submit-button" class="btn btn-dc-standard rounded-0"><!-- testhigh revisit class here -->
                             <span>Complete Order</span>
                             <span class="icon">
                                 <i class="bi bi-credit-card-fill"></i>
                             </span>
                         </button>
                         <!-- Order value information text. -->
-                        <p>
+                        <p class="pt-4">
                             <span class="icon">
-                                <i class="bi bi-exclamation-diamond-fill"></i>
+                                <i class="bi bi-exclamation-circle-fill"></i>
                             </span>
-                            <span><strong>€{{ grand_total|floatformat:2 }}</strong> will be charged to your card.</span>
+                            <span><strong>€{{ total_value | floatformat:2 }}</strong> will be charged to your card.</span>
                         </p>
                     </div>
+                    <!-- End Buttons -->
                 </form>
             </div>
+            <!-- End Col-12 -->
         </div>
+        <!-- End Row -->
     </div>
+    <!-- End Container -->
 {% endblock content %}
