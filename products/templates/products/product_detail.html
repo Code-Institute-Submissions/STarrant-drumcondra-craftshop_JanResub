@@ -35,7 +35,7 @@
                     <!-- Product Name -->
                     <p class="mb-0">{{ product.item_id.name }} by {{ product.item_id.creator_id.name }}</p>
                     <!-- Product Price -->
-                    <p class="lead mb-0 text-left font-weight-bold">€ {{ product.unit_price|floatformat:"2" }}</p> <!-- testhigh -->
+                    <p class="lead mb-0 text-left font-weight-bold">€ {{ product.unit_price|floatformat:"2" }}</p>
                     <!-- Product Category (if applicable) -->
                     {% if product.item_id.category_id %}
                         <p class="small-text mt-1 mb-0">

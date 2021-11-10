@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-<!--  load basket_tools   testhigh -->
 
 
 {% block extra_css %}
@@ -149,16 +148,15 @@
                     <!-- Form Completion Buttons -->
                     <div class="submit-button text-end mt-5 mb-2">
                         <!-- Back to shopping basket button -->
-                        <a href="{% url 'view_basket' %}" class="btn btn-dc-standard rounded-0"><!-- testhigh revisit class here -->
-                            <span>
+                        <a href="{% url 'view_basket' %}" class="btn btn-dc-standard rounded-0">
                                 Review your Shopping Basket
                             </span>
-                            <span class="icon"><!-- testhigh revisit class here -->
+                            <span class="icon">
                                 <i class="bi bi-basket-fill"></i>
                             </span>
                         </a>
                         <!-- Complete Order Button -->
-                        <button id="submit-button" class="btn btn-dc-standard rounded-0"><!-- testhigh revisit class here -->
+                        <button id="submit-button" class="btn btn-dc-standard rounded-0">
                             <span>Complete Order</span>
                             <span class="icon">
                                 <i class="bi bi-credit-card-fill"></i>
