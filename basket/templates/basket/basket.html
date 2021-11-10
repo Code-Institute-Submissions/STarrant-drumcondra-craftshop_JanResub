@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-<!--   load basket_tools   testhigh -->
 
 {% block page_header %}
     <div class="div header-container">
@@ -48,7 +47,6 @@
                                     <td class="w-25 p-3">
                                         <img class="img-fluid rounded" src="{{ item.product.item_id.image_url }}">
                                     
-                                    <!-- testhigh -->
                                     {% if item.product.item_id.image %}
                                         <a href="{{ product.item_id.image.url }}" target="_blank">
                                             <img class="img-fluid rounded" src="{{ item.product.item_id.image.url }}" alt="{{ item.product.item_id.name }}">
@@ -59,7 +57,6 @@
                                         </a>
                                     {% endif %}
                                     </td>
-                                    <!-- end testhigh -->
                                     <!-- Item Name and Stock Number -->
                                     <td class="py-3">
                                         <p class="my-0">
