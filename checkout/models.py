@@ -18,7 +18,7 @@ class Order(models.Model):
     address_street_1 = models.CharField(max_length=80, null=False, blank=False)
     address_street_2 = models.CharField(max_length=80, null=True, blank=True)
     address_town_city = models.CharField(max_length=40, null=False, blank=False)    
-    address_postcode = models.CharField(max_length=20, null=True, blank=True)    
+    address_postcode = models.CharField(max_length=20, null=True, blank=True)
     address_country = CountryField(null=False, blank=False)
     order_date = models.DateTimeField(auto_now_add=True)
     order_weight_g = models.IntegerField(null=False, default=0)
@@ -83,7 +83,7 @@ class OrderLineItem(models.Model):
                 )
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(
-                max_digits=6,   
+                max_digits=6,
                 decimal_places=2,
                 null=False,
                 blank=False,
@@ -97,8 +97,8 @@ class OrderLineItem(models.Model):
         Override the original save method to set the lineitem total
         and update the order total.
         """
-        self.lineitem_total = (self.product.item_id.unitcost
-                               self.product.salesmargin
+        self.lineitem_total = (self.product.item_id.unitcost,
+                               self.product.salesmargin,
                                self.product.quantity)
         super().save(*args, **kwargs)
 
