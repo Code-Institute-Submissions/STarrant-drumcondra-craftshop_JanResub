@@ -20,7 +20,7 @@ def checkout(request):
     context = {
         'order_form': order_form,
         'stripe_public_key': 'pk_live_51JtLsMCzvnOhwero3k5nYnyBD8U4kGY2tn0yEQaI5EKcCGgmzN4pU63dq3FQntS7PmIMjgfyA9gDH8HJOLJfP8a200xy55ihKq',
-        'client_secret': 'client secret test value'
+        'client_secret': 'client secret test value',
     }
 
     return render(request, template, context)
