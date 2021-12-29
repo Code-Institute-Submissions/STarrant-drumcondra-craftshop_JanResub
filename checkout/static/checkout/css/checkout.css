@@ -1,0 +1,13 @@
+/* testhigh return here to check is styles are used */
+
+.fieldset-label {
+    color: red;
+    position: relative; /* testhigh assign real values in here*/
+    right: .5rem;
+}
+
+#payment-form, .form-control,
+#card-element {
+    color: orange;
+    border: 1px solid #000;  /* testhigh assign real values in here*/
+}
