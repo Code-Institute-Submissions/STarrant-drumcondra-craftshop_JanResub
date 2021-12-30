@@ -5,7 +5,7 @@ let stripe_public_key = $('#id_stripe_public_key').text().slice(1,-1);
 let client_secret = $('#id_client_secret').text().slice(1,-1);
 let stripe = Stripe(stripe_public_key);
 let elements = stripe.elements();
-let card = elements.create('card');
+let card = elements.create('card', {style: style});
 
 let style = {
     base: {
@@ -24,4 +24,4 @@ let style = {
         }
     };
 
-card.mount('#card-element', {style: style});
+card.mount('#card-element');
