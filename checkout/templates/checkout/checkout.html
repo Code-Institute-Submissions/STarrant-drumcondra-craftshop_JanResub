@@ -157,7 +157,7 @@
                         </a>
                         <!-- Complete Order Button -->
                         <button id="submit-button" class="btn btn-dc-standard rounded-0">
-                            <span>Complete Order</span>
+                            <span class="testhigh">Complete Order</span>
                             <span class="icon">
                                 <i class="bi bi-credit-card-fill"></i>
                             </span>
@@ -186,5 +186,5 @@
 
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
-
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock postload_js %}

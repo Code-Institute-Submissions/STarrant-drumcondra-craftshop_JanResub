@@ -1,5 +1,3 @@
-/* testhigh return here to check is styles are used */
-
 .fieldset-label {
     color: red;
     position: relative; /* testhigh assign real values in here*/
