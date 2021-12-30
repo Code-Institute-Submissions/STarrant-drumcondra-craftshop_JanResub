@@ -40,3 +40,9 @@
 .dc-stripe-error {
     color: #dc3545;
 }
+
+.textinput,
+.emailinput,
+#id_address_country {
+    width: 100%;
+}
