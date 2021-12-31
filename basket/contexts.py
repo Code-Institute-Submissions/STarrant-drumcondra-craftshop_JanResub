@@ -12,6 +12,8 @@ def basket_contents(request):
     item_count = 0
     unit_price = 0.00
     line_value = 0.00
+    delivery_cost = 50.00
+    grand_total = 0.00
 
     basket = request.session.get('basket', {})
 
@@ -21,19 +23,22 @@ def basket_contents(request):
         line_value = quantity * unit_price
         total_value += line_value
         item_count += quantity
+        grand_total = total_value + delivery_cost
         basket_items_list.append({
             'item_id': item_id,
             'quantity': quantity,
             'product': product,
             'unit_price': unit_price,
             'line_value': line_value,
+            'delivery_cost': delivery_cost,
+            'grand_total': grand_total,
         })
 
     context = {
         "basket_items_list": basket_items_list,
         "total_value": total_value,
         "item_count": item_count,
-        "delivery_cost": "TBA",
+        "delivery_cost": 100,
         "grand_total": "TBA",
     }
 
