@@ -4,6 +4,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+
 def basket_contents(request):
     """ Context processor for shopping basket. """
 
@@ -12,8 +13,8 @@ def basket_contents(request):
     item_count = 0
     unit_price = 0.00
     line_value = 0.00
-    delivery_cost = 50.00
-    grand_total = 0.00
+    delivery_cost = 50
+    grand_total = 0
 
     basket = request.session.get('basket', {})
 
@@ -38,8 +39,8 @@ def basket_contents(request):
         "basket_items_list": basket_items_list,
         "total_value": total_value,
         "item_count": item_count,
-        "delivery_cost": 100,
-        "grand_total": "TBA",
+        "delivery_cost": delivery_cost,
+        "grand_total": grand_total,
     }
 
     return context
