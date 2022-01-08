@@ -23,6 +23,7 @@ let style = {
     };
 let card = elements.create('card', {style: style});
 card.mount('#card-element');
+console.log("Card loaded");
 
 // Handle Stripe card errors.
 card.addEventListener('change', function (event) {

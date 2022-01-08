@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     # shopping basket app - Dromcondra Craftshop Basket App
     'basket',
     # storages app
-    'storages',
+    # 'storages', testhigh
     # checkout app
     'checkout',
     # Other Apps - crispy forms
