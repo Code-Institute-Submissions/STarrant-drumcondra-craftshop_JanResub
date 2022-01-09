@@ -27,7 +27,7 @@ class Order(models.Model):
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
-    def _generate_order_number(self):
+    def _generate_order_no(self):
         """
         Generate a random, unique order number using UUID
         """
@@ -43,13 +43,13 @@ class Order(models.Model):
         recalculate the delivery cost.
         """
         self.order_total = self.lineitems.aggregate(Sum(
-            'lineitem_total'))['lineitem_total__sum']
+            'lineitem_total'))['lineitem_total__sum'] or 0
         self.order_weight_g = self.lineitems.aggregate(Sum(
-            'lineitem_weight_g'))['lineitem_weight_g__sum']
+            'lineitem_weight_g'))['lineitem_weight_g__sum'] or 0
         # Source for use of aggregate(BoolAnd)
         # https://django.readthedocs.io/en/stable/ref/contrib/postgres/aggregates.html
-        self.order_items_ship_in_packet = self.lineitems.aggregate(
-            BoolAnd('lineitem_ship_in_packet'))['lineitem_ship_in_packet']
+        self.order_items_ship_in_packet = False # testhigh
+        # self.order_items_ship_in_packet = self.lineitems.aggregate(BoolAnd('lineitem_ship_in_packet'))['lineitem_ship_in_packet'] or False
         self.delivery_cost = 0  # calculation for delivery cost to be added testhigh
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
@@ -59,12 +59,12 @@ class Order(models.Model):
         Override the original save method to set the order number
         if it hasn't been set already.
         """
-        if not self.order_number:
-            self.order_number = self._generate_order_number()
+        if not self.order_no:
+            self.order_no = self._generate_order_no()
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.order_number
+        return self.order_no
 
 
 class OrderLineItem(models.Model):
@@ -97,13 +97,15 @@ class OrderLineItem(models.Model):
         Override the original save method to set the lineitem total
         and update the order total.
         """
-        self.lineitem_total = (self.product.item_id.unitcost,
-                               self.product.salesmargin,
-                               self.product.quantity)
+        self.lineitem_total = (self.product.item_id.unitcost *
+                               self.product.salesmargin *
+                               self.quantity)
+        self.lineitem_weight_g = (self.product.item_id.weight_g)
+        self.lineitem_ship_in_packet = (self.product.item_id.ship_in_packet)
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'SKU {self.product.sku} on order {self.order.order_number}'
+        return f'SKU {self.product.sku} on order {self.order.order_no}'
 
 
 class ShippingZone(models.Model):

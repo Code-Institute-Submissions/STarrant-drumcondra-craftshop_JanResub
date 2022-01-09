@@ -1,6 +1,6 @@
 # checkout/views.py
 
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
 import stripe
@@ -21,14 +21,14 @@ def checkout(request):
         basket = request.session.get('basket', {})
 
         form_data = {
-            'full_name': request.POST('full_name'),
-            'email': request.POST('email'),
-            'phone_no': request.POST('phone_no'),
-            'address_street_1': request.POST('address_street_1'),
-            'address_street_2': request.POST('address_street_2'),
-            'address_town_city': request.POST('address_town_city'),    
-            'address_postcode': request.POST('address_postcode'),
-            'address_country': request.POST('address_country'),
+            'full_name': request.POST['full_name'],
+            'email': request.POST['email'],
+            'phone_no': request.POST['phone_no'],
+            'address_street_1': request.POST['address_street_1'],
+            'address_street_2': request.POST['address_street_2'],
+            'address_town_city': request.POST['address_town_city'],    
+            'address_postcode': request.POST['address_postcode'],
+            'address_country': request.POST['address_country'],
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
@@ -52,7 +52,7 @@ def checkout(request):
                     return redirect(reverse('view_basket'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success', args=[order.order_no]))
         else:
             messages.error(request, 'There was an error with your form.')
     else:
@@ -80,6 +80,27 @@ def checkout(request):
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
+    }
+
+    return render(request, template, context)
+
+
+def checkout_success(request, order_no):
+    """
+    Renders the follow page on completion of a successful order.
+    """
+    save_info = request.session.get('save_info')
+    order = get_object_or_404(Order, order_no=order_no)
+    messages.success(request, f'Thank you for your order. \
+        Your order number is { order_no }. \
+        A confirmation email will be sent to { order.email }.')
+
+    if 'basket' in request.session:
+        del request.session['basket']
+
+    template = 'checkout/checkout_success.html/'
+    context = {
+        'order': order,
     }
 
     return render(request, template, context)
