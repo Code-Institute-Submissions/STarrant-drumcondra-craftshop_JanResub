@@ -98,7 +98,7 @@ class OrderLineItem(models.Model):
         and update the order total.
         """
         self.lineitem_total = (self.product.item_id.unitcost *
-                               self.product.salesmargin *
+                               (1+ self.product.salesmargin) *
                                self.quantity)
         self.lineitem_weight_g = (self.product.item_id.weight_g)
         self.lineitem_ship_in_packet = (self.product.item_id.ship_in_packet)
