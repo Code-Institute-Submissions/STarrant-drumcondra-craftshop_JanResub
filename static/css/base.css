@@ -137,6 +137,14 @@ body {
     font-size: smaller;
   }
 
+.text-muted {
+    color: #4A5899;
+}
+
+.text-heavy {
+    font-weight: 700;
+}
+
 .hr-light {
     border-bottom: 1px solid #8C5383;
 }
