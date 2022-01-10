@@ -65,3 +65,8 @@
   margin: 0;
   height: 100%;
 }
+
+.loading-spinner-text {
+  color: #efefef;
+  font-size: larger;
+}
