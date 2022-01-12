@@ -4,7 +4,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Product, Category, Item, Creator
-from .forms import ProductForm
+from .forms import ItemForm, ProductForm
 
 # Create your views here.
 
@@ -87,6 +87,17 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
+
+
+def add_item(request):
+    """ Add an item to the store """
+    form = ItemForm()
+    template = 'products/add_item.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
 
 
 def add_product(request):

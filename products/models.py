@@ -37,6 +37,10 @@ class Creator(models.Model):
         ''' Return the creator name. '''
         return self.name
 
+    def get_creator_name(self):
+        ''' Return the creator name. '''
+        return self.name
+
 
 # Item Model
 class Item(models.Model):
