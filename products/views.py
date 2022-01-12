@@ -91,6 +91,17 @@ def product_detail(request, product_id):
 
 def add_item(request):
     """ Add an item to the store """
+    if request.method == 'POST':
+        form = ItemForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added a new item.')
+            return redirect(reverse('add_item'))
+        else:
+            messages.error(request, 'Failed to add item. Check form for errors and try again.')
+    else:
+        form = ItemForm()
+
     form = ItemForm()
     template = 'products/add_item.html'
     context = {
@@ -102,6 +113,17 @@ def add_item(request):
 
 def add_product(request):
     """ Add a product to the store """
+    if request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added a new product.')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add product. Check form for errors and try again.')
+    else:
+        form = ProductForm()
+
     form = ProductForm()
     template = 'products/add_product.html'
     context = {
