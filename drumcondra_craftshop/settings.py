@@ -29,8 +29,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '_')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-# ALLOWED_HOSTS = ['drumcondra-craftshop.herokuapp.com', 'localhost'] testhigh remove this line if
-ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]
+ALLOWED_HOSTS = ['drumcondra-craftshop.herokuapp.com', 'localhost']
+# ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')] testhigh
 
 # Application definition
 
