@@ -72,24 +72,24 @@ form.addEventListener('submit', function(ev) {
                     name: $.trim(form.full_name.value),
                     phone: $.trim(form.phone_no.value),
                     email: $.trim(form.email.value),
-                    // address:{
-                    //     line1: $.trim(form.address_street_1.value),
-                    //     line2: $.trim(form.address_street_2.value),
-                    //     city: $.trim(form.address_town_or_city.value),
-                    //     country: $.trim(form.address_country.value),
-                    // }
+                    address:{
+                        line1: $.trim(form.address_street_1.value),
+                        line2: $.trim(form.address_street_2.value),
+                        city: $.trim(form.address_town_or_city.value),
+                        country: $.trim(form.address_country.value),
+                    }
                 }
             },
             shipping: {
                 name: $.trim(form.full_name.value),
                 phone: $.trim(form.phone_no.value),
-                // address:{
-                //     line1: $.trim(form.address_street_1.value),
-                //     line2: $.trim(form.address_street_2.value),
-                //     city: $.trim(form.address_town_or_city.value),
-                //     country: $.trim(form.address_country.value),
-                //     postal_code: $.trim(form.address_postcode.value),
-                // }
+                address:{
+                    line1: $.trim(form.address_street_1.value),
+                    line2: $.trim(form.address_street_2.value),
+                    city: $.trim(form.address_town_or_city.value),
+                    country: $.trim(form.address_country.value),
+                    postal_code: $.trim(form.address_postcode.value),
+                }
             }
         })
     
