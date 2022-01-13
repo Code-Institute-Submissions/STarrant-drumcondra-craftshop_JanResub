@@ -30,7 +30,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '_')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['drumcondra-craftshop.herokuapp.com', 'localhost']
-# ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')] testhigh
 
 # Application definition
 
@@ -53,7 +52,7 @@ INSTALLED_APPS = [
     # shopping basket app - Dromcondra Craftshop Basket App
     'basket',
     # storages app
-    # 'storages', testhigh
+    'storages',
     # checkout app
     'checkout',
     # Other Apps - crispy forms
@@ -218,14 +217,6 @@ else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# DISABLE_COLLECTSTATIC = 1
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
