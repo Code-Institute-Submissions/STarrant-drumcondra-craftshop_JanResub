@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
@@ -90,8 +91,12 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
+@login_required()
 def add_item(request):
     """ Add an item to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Superuser authorisation required to perform this action.')
+        return redirect(reverse('products'))
     if request.method == 'POST':
         form = ItemForm(request.POST, request.FILES)
         if form.is_valid():
@@ -113,8 +118,14 @@ def add_item(request):
     return render(request, template, context)
 
 
+@login_required()
 def edit_item(request, item_id):
     """ Edit an item in the shop. """
+    if not request.user.is_superuser:
+        messages.error(request, 'Superuser authorisation required \
+                       to perform this action.')
+        return redirect(reverse('products'))
+
     item = get_object_or_404(Item, pk=item_id)
     if request.method == 'POST':
         form = ItemForm(request.POST, instance=item)
@@ -138,8 +149,14 @@ def edit_item(request, item_id):
     return render(request, template, context)
 
 
+@login_required()
 def add_product(request):
     """ Add a product to the shop """
+    if not request.user.is_superuser:
+        messages.error(request, 'Superuser authorisation required \
+                       to perform this action.')
+        return redirect(reverse('products'))
+
     if request.method == 'POST':
         form = ProductForm(request.POST)
         if form.is_valid():
@@ -161,8 +178,14 @@ def add_product(request):
     return render(request, template, context)
 
 
+@login_required()
 def edit_product(request, product_id):
     """ Edit a product in the shop. """
+    if not request.user.is_superuser:
+        messages.error(request, 'Superuser authorisation required \
+                       to perform this action.')
+        return redirect(reverse('products'))
+
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, instance=product)
@@ -186,8 +209,14 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
+@login_required()
 def delete_product(request, product_id):
     """ Delele a product from the shop """
+    if not request.user.is_superuser:
+        messages.error(request, 'Superuser authorisation required \
+                       to perform this action.')
+        return redirect(reverse('products'))
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product Deleted!')
