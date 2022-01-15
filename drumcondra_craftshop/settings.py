@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     # Other Apps - crispy forms
     'crispy_forms',
     # Other Apps - crispy forms - bootstrap 5 Template Pack
-    # 'crispy_bootstrap5', testhigh
+    # 'crispy_bootstrap5',  testhigh
 ]
 
 MIDDLEWARE = [
