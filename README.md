@@ -272,7 +272,7 @@ Insert database structure for this project is as follows:
 ![DC-User-Test-6](wireframes/dc-user-test-6.png)
 * Test-7.   As a **Site User**, I want to be able to **receive password change confirmation by email** so that I can **know my password has been changed - by me or someone else**. Test incomplete - FAIL.
 ![DC-User-Test-7](wireframes/dc-user-test-7.png)
-* Test-8.   As a **Site User**, I want to be able to **have a personal email profile** so that I can **see order history, confirmations and personal information**. Test incomplete - FAIL.
+* Test-8.   As a **Site User**, I want to be able to **have a personal profile** so that I can **see order history, confirmations and personal information**. Test incomplete - FAIL.
 ![DC-User-Test-8](wireframes/dc-user-test-8.png)
 
 ##### Sorting and Searching
@@ -406,25 +406,16 @@ The remote deployment is setup as follows:
 1. In order to run the database end of the application the Heroku Postgres Add-on needs to be included. This can be found under Add-Ons and select the 'Hobby Dev - Free' plan and click 'Submit order form' to create a new database and attach it to the app.
 1. In the Heroku main settings, scroll to the Config Vars and click Reveal Config Vars. A set of variables, similar to the env.py file in local deployment, need to be setup to hold sensitive or project specific datapoints that cannot be hard-coded into the application's software.
     ```
-    AWS_ACCESS_KEY_ID = "Your AWS access key ID"
-    AWS_SECRET_ACCESS_KEY = "Your AWS secret access key"
-    AWS_STORAGE_BUCKET_NAME = "Your AWS bucket name"
-    USE_AWS = True
-    
     DATABASE_URL = "This is the URI for your Heroku Postgres Database. (Should be automatically populated by Heroku at DB creation.)"
 
-    SECRET_KEY = "SECRET_KEY"
+    DISABLE_COLLECTSTATIC = 1
+
+    SECRET_KEY = "Your Django Allauth secret key"
 
     STRIPE_PUBLIC_KEY = "Your Stripe public key"
     STRIPE_SECRET_KEY = "Your Stripe secret key"
     STRIPE_WH_SECRET = "Your Stripe webhook secret key"
 
-    DEFAULT_FROM_EMAIL = "DEFAULT_FROM_EMAIL"  **testhigh delete**
-    EMAIL_HOST = "smtp.gmail.com"  **testhigh delete**
-    EMAIL_HOST_PASSWORD = "Your email host password"
-    EMAIL_HOST_USER = "Your email host username"
-    EMAIL_PORT = 587  **testhigh delete**
-    EMAIL_USE_TLS = True   **testhigh delete**
     ```
 1. From this screen in Heroku, take note of the DATABASE_URL setting and navigate to settings.py in Gitpod in the Drumcondra_Craftshop folder.
     Comment out the default database configuration and add the following code with the previously noted DATABASE_URL setting inserted:
@@ -467,74 +458,72 @@ The remote deployment is setup as follows:
         DATABASES = {
             'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
         }
-```
+    ```
 This set up will allow your site to use Postgres in the Heroku production deployment and sqlite3 in Gitpod development environment.
 
 
-1. Make sure you have your requirements.txt file and your Procfile. In case you don't, follow the below steps:
-    Requirements:
+1. Create a requirements file to list necessary packages to be installed by running the following command:
     ```
-    pip3 freeze --local > requirements.txt
+    pip3 freeze > requirements.txt
     ```
-1. The Procfile should contain the following line:
+1. Create a procfile to declare what commands are run by the application's dynos on the Heroku platform. This file should exist in the root directory and have the following content.
     ```
     web: gunicorn drumcondra_craftshop.wsgi:application
 
     ```
 
-1. Add your files and commit them to GITHUB by running the following commands:
+1. Add requirements.txt and the procfile to Github with the following commands:
     ```
     git add . 
-    git commit -m "Your commit message"
+    git commit -m "Requirements.txt and Procfile added"
     git push
     ```
 
-1. Add your Heroku app URL to ALLOWED_HOSTS in your settings.py file
+1. The ALLOWED_HOSTS variable in settings.py should be amended to contain the heroku app's url. For example:
+    ```
+    ALLOWED_HOSTS = ['drumcondra-craftshop.herokuapp.com', 'localhost']
+    ```
 1. Disable collect static so that Heroku doesn't try to collect static files when you deploy by typing the following command in the terminal
     ```
     heroku config:set DISABLE_COLLECTSTATIC=1
     ```
-1. Go back to HEROKU and click "Deploy" in the navigation. 
-1. Scroll down to Deployment method and Select Github. 
-1. Look for your repository and click connect. 
-1. Under automatic deploys, click 'Enable automatic deploys'
+1. In Heroku select **Deploy** in the main menu ribbon and in the **Deployment Method** select **GitHub**.
+1. Search for the GitHub repository name to link Heroku to the correct repository and **Enable Automatic Deployments**.
+1. Click **Deploy Branch** for Heroku to commence building the app. The build status can be viewed in the **Activity** ribbon item.
+1. When the build is complete, the app can be opened with the **Open App** button on the top right.
 
-1. Just beneath, click "Deploy branch". Heroku will now start building the app. When the build is complete, click "view app" to open it.
-1. In order to commit your changes to the branch, use git push to push your changes. 
-
-
-1. Store your static files and media files on AWS. You can find more information about this on [Amazon S3 Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html).
-    If you would like to follow a tutorial instead, visit [this tutorial on Youtube from Amazon Web Services](https://youtube.com/watch?v=e6w9LwZJFIA)
-
-1. Set up email service to send confirmation email and user verification email to the users. You can do this by following the next steps (Gmail only)
-
-(Be aware that this migth be different for other providers or the process might have changed over time)
-
-* Go to your email account and go to your account settings
-* Under Security, scroll down to Signing in to Google and make sure 2 step verification is turned on
-* Under the same heading (Signing in to Google) you will see the 'App passwords' option.
-* Click on the option, select mail for the app and under device type select other and fill in 'Django'
-* You will now get a password which you should copy and set it as a config variable in Heroku:
-
-```
-    EMAIL_HOST_PASS = 'Password you just copied'
-    EMAIL_HOST_USER = 'Your gmail account
-```
-* Go to your settings.py in casa_pedra_nobre directory and add the following:
-
-```
-    if "DEVELOPMENT" in os.environ:
-        EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-        DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
-    else:
-        EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-        EMAIL_USE_TLS = True
-        EMAIL_PORT = 587
-        EMAIL_HOST = 'smtp.gmail.com'
-        EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-        EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
-        DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
-```
+1. **Static and Media Files** for the project should be stored on **Amazon Web Services (AWS) S3 Bucket Service**. A full description of this can be found at [Amazon S3 Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html).
+1. The following settings should be added to the Heroku app's Config Vars for the AWS S3 storage to function for the project.
+    ```
+    AWS_ACCESS_KEY_ID = "Your AWS access key ID"
+    AWS_SECRET_ACCESS_KEY = "Your AWS secret access key"
+    AWS_STORAGE_BUCKET_NAME = "Your AWS bucket name"
+    USE_AWS = True
+    ```
+1. The following steps will allow user verification and confirmation emails to be set up using Gmail. (Alternative email service providers are possible also but the setup procedure may differ.)
+1. Follow Google's procedures and set up a new email account for the project.
+1. In the security settings, scroll down to signing in and ensure 2-step verification is enabled.
+1. In the App passwords option menu, select mail and under device type select other and give a meaningful name, e.g. 'Django'.
+1. Copy the app password and add the following Config Vars in Heroku.
+    ```
+        EMAIL_HOST_PASSWORD = "Your email host password"
+        EMAIL_HOST_USER = "Your email host username"
+    ```
+1. Go to your settings.py in drumcondra_craftshop directory and add the following:
+    ```
+        if 'DEVELOPMENT' in os.environ:
+            EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+            DEFAULT_FROM_EMAIL = 'drumcondracraftshop@gmail.com'
+        else:
+            EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+            EMAIL_USE_TLS = True
+            EMAIL_PORT = 587
+            EMAIL_HOST = 'smtp.gmail.com'
+            EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+            EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+            DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+    ```
+1. Production deployment should now be complete and updates to the GitHub repository automatically trigger Heroku rebuilds.
 
 
 ###### [Back to Top](#contents)
