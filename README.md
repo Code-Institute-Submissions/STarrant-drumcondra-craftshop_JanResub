@@ -339,13 +339,51 @@ Many bugs were encountered during the development of the project - all admittedl
 
 ### Local Deployment <a name="local-deployment"></a>
 
-The site has been deployed and tested locally on gitpod.
+This project has been created, stored and built using GitHub and GitPod as the repository and development environments respectively.
+Code changes throughout the project were committed to GitHub, followed by the 'git push' CLI command to store changes permanently.
+The development version of the project used for testing runs in GitPod and the deployed version runs on Heroku.
+
+To run the full site, you will need to create a Stripe account for the Checkout functionality to run.
+An AWS (Amazon Web Services) account is required to store static and media files.
+
+This project runs locally using the following steps in Gitpod:
+
+1. Clone the project: From GitHub repository, click the 'Code' button and download the zip of the repository.
+    Alternatively, the respository can be cloned using the following CLI command in GitPod.
+    ```
+    git clone https://github.com/STarrant/drumcondra-craftshop.git
+    ```
+
+1. Open the copied repository and install the required packages using the following CLI command.
+    ```
+    pip3 install -r requirements.txt
+    ```
+
+1. In GitPod create an env.py file to contain the required enviroment variables at root level.
+    **IMPORTANT** Ensure env.py is added to the .gitignore in your repository to prevent these sensitive data points being made public.
+    ```
+    import os
+
+    os.environ["SECRET_KEY"] = "YOUR_SECRET_KEY"
+    os.environ["DEVELOPMENT"] = "True"
+
+    os.environ["DEFAULT_FROM_EMAIL"] = 'DEFAULT_FROM_EMAIL'
+
+    os.environ["STRIPE_PUBLIC_KEY"] = "insert your stripe public key here"
+    os.environ["STRIPE_SECRET_KEY"] = "insert your stripe secret key here"
+    os.environ["STRIPE_WH_SECRET"] = "insert your stripe webhook hey here"
+    os.environ["STRIPE_CURRENCY"] = "EUR"
+    ```
+    Please refer to Stripe's documentation to get the exact details of how to ascertain the three required data points above that need to be manually inserted.
+
+    An alternative option to using an env.py file in GitPod is to use GitPod's own [Variables](https://gitpod.io/variables) to store your project specific environment variables in a secure and convenient manner. 
+
 
 ### Remote Deployment <a name="remote-deployment"></a>
 
 The site has been deployed and tested remotely using Heroku and AWS S3 services.
 Heroku Site is available on [drumcondra-craftshop-heroku-app](https://drumcondra-craftshop.herokuapp.com/).
-* During the final stages of the project, I have broken the Heroku app and have not been able to fix it.
+
 
 ###### [Back to Top](#contents)
 
@@ -353,12 +391,14 @@ Heroku Site is available on [drumcondra-craftshop-heroku-app](https://drumcondra
 
 ---
 
-* Main home page photo Photo by <a href="https://unsplash.com/@gregda?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Gregory DALLEAU</a> on <a href="https://unsplash.com/s/photos/dublin?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
+* Main home page [photo](https://unsplash.com/photos/KT4dOfvtZSg) by (Gregory Dalleau)[https://unsplash.com/@gregda] from [Unsplash](https://unsplash.com/).
+* Photograph of [potter](https://unsplash.com/photos/5z6a2OlqhrY) by (Iraj Beheshti)[https://unsplash.com/@setarehshab] from [Unsplash](https://unsplash.com/).
 
 ### Special Thanks
 
 * My Code Institute mentor, [Simen Daehlin](https://github.com/Eventyret), for a lot of great advice and direction along the way. His time, effort and experience made a huge difference to the code quality, readability and end result. It would be hard to overstate his input here. 
 * [Chris Z](https://github.com/ckz8780) whose excellent Boutique Ado project walk-through was used as the basis for the structural code in this project.
+* [Sean_CI](https://github.com/nazarja) for helping me fix a database error that stumped me for over two weeks.
+* Last and most certainly not least, I owe a huge debt to my patient wife, kids and dogs who have tolerated my untold hours on evenings, nights and weekends, squirrelled away on front of a screen while I've been doing this project. There is a lot of time to be made up for.
 
 ###### [Back to Top](#contents)
