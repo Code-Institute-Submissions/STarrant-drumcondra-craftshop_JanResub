@@ -9,6 +9,7 @@ let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 let clientSecret = $('#id_client_secret').text().slice(1, -1);
 let stripe = Stripe(stripePublicKey);
 let elements = stripe.elements();
+
 let style = {
     base: {
         color: '#000',
@@ -53,7 +54,8 @@ form.addEventListener('submit', function(ev) {
     $('#payment-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
 
-    let saveInfo = Boolean($('#id-save-info').attr('checked'));
+    // let saveInfo = Boolean($('#id-save-info').attr('checked')); testhigh
+    let saveInfo = Boolean($('#id-save-info:checked').val());
     // From using {% csrf_token %} in the form
     let csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     let postData = {
@@ -75,7 +77,7 @@ form.addEventListener('submit', function(ev) {
                     address:{
                         line1: $.trim(form.address_street_1.value),
                         line2: $.trim(form.address_street_2.value),
-                        city: $.trim(form.address_town_or_city.value),
+                        city: $.trim(form.address_town_city.value),
                         country: $.trim(form.address_country.value),
                     }
                 }
@@ -86,7 +88,7 @@ form.addEventListener('submit', function(ev) {
                 address:{
                     line1: $.trim(form.address_street_1.value),
                     line2: $.trim(form.address_street_2.value),
-                    city: $.trim(form.address_town_or_city.value),
+                    city: $.trim(form.address_town_city.value),
                     country: $.trim(form.address_country.value),
                     postal_code: $.trim(form.address_postcode.value),
                 }

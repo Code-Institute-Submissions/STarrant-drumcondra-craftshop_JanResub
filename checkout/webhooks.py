@@ -28,11 +28,14 @@ def webhook(request):
         )
     except ValueError as e:
         # Invalid Payload
+        print('Webhook.py - invalid payload') # testhigh
         return HttpResponse(status=400)
     except stripe.error.SignatureVerificationError as e:
         # Invalid Signature
+        print('Webhook.py - signature verification error') # testhigh
         return HttpResponse(status=400)
     except Exception as e:
+        print('Webhook.py - exception e') # testhigh
         return HttpResponse(content=e, status=400)
     print('Success')
 
@@ -47,11 +50,14 @@ def webhook(request):
 
     # Get the webhook type from Stripe
     event_type = event['type']
+    print(event_type)  # testhigh
 
     # If there's a handler for it, get it from the event map
     # Use the generic one by default
     event_handler = event_map.get(event_type, handler.handle_event)
+    print(event_handler)  # testhigh
 
     # Call the event handler with the event
     response = event_handler(event)
+    print(response)  # testhigh
     return response

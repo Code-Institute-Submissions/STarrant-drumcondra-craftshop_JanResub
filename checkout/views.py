@@ -20,7 +20,7 @@ from products.models import Item, Product
 @require_POST
 def cache_checkout_data(request):
     """
-
+    Caching checkout data. testhigh
     """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
