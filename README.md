@@ -1,12 +1,10 @@
-* Note to CodeInstitute corrector: I can only apologise for the final state of the project here. I ran out of time to implement the user access control and stripe payments. The user stories, responsiveness, manual and automatic tests have not been completed because I was unable to get the code to the finish line. I'm really sorry for wasting your time here having to look at this poor submission. Django has defeated me.
-
 # Dromcondra Craftshop - Online Store
 
 * Supporting your local artisans.
 
 ## Project Goals
 
-* The goal of this project is to create a digital counterpart for a successful local craft business in order for them to broaden their horizons and sell products to a wider audience. 
+* The goal of this project is to create a digital counterpart for a successful local craft business in order for them to broaden their horizons and sell products to a wider audience.
 
 <a></a>
 
@@ -54,7 +52,7 @@
 
 ### User Stories <a name="user-stories"></a>
 
-#### Viewing and Navigation 
+#### Viewing and Navigation
 
 * As a **Shopper**, I want to be able to **view the site's products** so that I can **chose some to buy**.
 * As a **Shopper**, I want to be able to **view an individual product's detailed information** so that I can **see the detailed description, manufacturer or creator, price and rating.**.
@@ -139,7 +137,6 @@ The website is structured with a main entry page with an enter store button and 
 
 Wireframing was done using Balsamiq under full-functional trial provided by Code Institute.
 Wireframes were developed for a ![main page](wireframes/wf-home-page-rev-0-1.png), ![main product view page](wireframes/wf-product-page-0-1.png).
-
 
 ### Flowcharts <a name="flowcharts"></a>
 
@@ -237,7 +234,6 @@ Insert database structure for this project is as follows:
 * Responsiveness is quite good going from mobile to larger screens and navbar collapses predictably.
 * Site testing incomplete.
 
-
 ### Design
 
 * The design of the site was inspired by a combination of a craftshop in my locality that sells a lot of unique, locally produced goods and the Boutique Ado tutorial project on the CI course. Simplicity of design was important throughout with a calm color palette. Accessible contact details are there also for people who feel more comfortable contacting the business directly with any queries.
@@ -307,6 +303,7 @@ Insert database structure for this project is as follows:
 ![DC-User-Test-19](wireframes/dc-user-test-19.png)
 * Test-20.   As a **Site-Owner**, I want to be able to **create new creator/artisans for the store** so that I can **easily reduce or add extra items as needed**. Test incomplete - FAIL.
 ![DC-User-Test-20](wireframes/dc-user-test-20.png)
+
 </details>
 
 ###### [Back to Top](#contents)
@@ -325,7 +322,6 @@ Many bugs were encountered during the development of the project - all admittedl
 * BugFix:  Missing single quotes around search term in views.py caused a synthax error on implementation of the search bar. This is was obvious enough from the error message and quickly fixed.
 * BugFix:  Error on variable name 'categories' in products/views.py. Incorrectly named 'category' and threw error message.
 * BugFix:  Serious issues encountered trying to connect Heroku with AWS's S3 bucket. Many setting configurations were attempted. Solution was found to be an incorrectly assigned BASE_DIR in settings.py. Once this was corrected, static files were transferred to AWS and the deployed site loaded the correct css styles.
-
 
 ### Testing Bugs
 
@@ -350,18 +346,21 @@ This project runs locally using the following steps in Gitpod:
 
 1. Clone the project: From GitHub repository, click the 'Code' button and download the zip of the repository.
     Alternatively, the respository can be cloned using the following CLI command in GitPod.
-    ```
+
+    ```bash
     git clone https://github.com/STarrant/drumcondra-craftshop.git
     ```
 
 1. Open the copied repository and install the required packages using the following CLI command.
-    ```
+
+    ```bash
     pip3 install -r requirements.txt
     ```
 
 1. In GitPod create an env.py file to contain the required enviroment variables at root level.
     **IMPORTANT** Ensure env.py is added to the .gitignore in your repository to prevent these sensitive data points being made public.
-    ```
+
+    ```py
     import os
 
     os.environ["SECRET_KEY"] = "YOUR_SECRET_KEY"
@@ -374,25 +373,32 @@ This project runs locally using the following steps in Gitpod:
     os.environ["STRIPE_WH_SECRET"] = "insert your stripe webhook hey here"
     os.environ["STRIPE_CURRENCY"] = "EUR"
     ```
+
     Please refer to Stripe's documentation to get the exact details of how to ascertain the three required data points above that need to be manually inserted.
 
     An alternative option to using an env.py file in GitPod is to use GitPod's own [Variables](https://gitpod.io/variables) to store your project specific environment variables in a secure and convenient manner.
 
 1. Migrate the database models with the following commands.
-    ```
+
+    ```bash
     python3 manage.py makemigrations --dry-run
     python3 manage.py makemigrations
     python3 manage.py migrate --planned
     python3 manage.py migrate
     ```
+
 1. Create a superuser account for database access with the following command.
-    ```
+
+    ```bash
     python3 manage.py createsuperuser
     ```
+
 1. The application can be started with the following command.
-    ```
+
+    ```bash
     python manage.py runserver
     ```
+
     The local application's webserver address will be displayed in the terminal and there is usually a dialog box to open in a new browser window.
 1. To access the site administration page, add '/admin' to the application's url and login in with the superuser credentials created above.
 
@@ -402,10 +408,12 @@ The site has been deployed and tested remotely using Heroku and AWS S3 services.
 Heroku Site is available on [drumcondra-craftshop-heroku-app](https://drumcondra-craftshop.herokuapp.com/).
 
 The remote deployment is setup as follows:
+
 1. A Heroku account is required for this application. Create a new account if you do not already have one, create a new app and choose the most appropriate region.
 1. In order to run the database end of the application the Heroku Postgres Add-on needs to be included. This can be found under Add-Ons and select the 'Hobby Dev - Free' plan and click 'Submit order form' to create a new database and attach it to the app.
 1. In the Heroku main settings, scroll to the Config Vars and click Reveal Config Vars. A set of variables, similar to the env.py file in local deployment, need to be setup to hold sensitive or project specific datapoints that cannot be hard-coded into the application's software.
-    ```
+
+    ```py
     DATABASE_URL = "This is the URI for your Heroku Postgres Database. (Should be automatically populated by Heroku at DB creation.)"
 
     DISABLE_COLLECTSTATIC = 1
@@ -417,15 +425,19 @@ The remote deployment is setup as follows:
     STRIPE_WH_SECRET = "Your Stripe webhook secret key"
 
     ```
+
 1. From this screen in Heroku, take note of the DATABASE_URL setting and navigate to settings.py in Gitpod in the Drumcondra_Craftshop folder.
     Comment out the default database configuration and add the following code with the previously noted DATABASE_URL setting inserted:
-    ```
+
+    ```py
     DATABASES = {
         'default': dj_database_url.parse('postgres://.....'))
     }
     ```
+
 1. Migrate again with the following commands in Gitpod.
-    ```
+
+    ```bash
     heroku login -i
     (Enter heroku login credential for Heroku site.)
     heroku run python3 manage.py makemigrations --dry-run
@@ -435,18 +447,22 @@ The remote deployment is setup as follows:
     ```
 
 1. Still in the Gitpod Terminal, enter the following command to create a new Heroku Postgres superuser account.
-    ```
+
+    ```bash
     heroku run python3 manage.py createsuperuser
     ```
+
 1. Load data from the development database into the production databases with the following commands.
 
-    ```
+    ```bash
     python3 manage.py loaddata <name of file containing the data *>
-    ``` 
+    ```
+
     * products_datadump.json
 
 1. After migrations are complete, change database configurations in settings.py to:
-    ```
+
+    ```py
     if 'DEVELOPMENT' in os.environ:
     DATABASES = {
         'default': {
@@ -459,34 +475,42 @@ The remote deployment is setup as follows:
             'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
         }
     ```
+
 This set up will allow your site to use Postgres in the Heroku production deployment and sqlite3 in Gitpod development environment.
 
-
 1. Create a requirements file to list necessary packages to be installed by running the following command:
-    ```
+
+    ```bash
     pip3 freeze > requirements.txt
     ```
+
 1. Create a procfile to declare what commands are run by the application's dynos on the Heroku platform. This file should exist in the root directory and have the following content.
-    ```
+
+    ```py
     web: gunicorn drumcondra_craftshop.wsgi:application
 
     ```
 
 1. Add requirements.txt and the procfile to Github with the following commands:
-    ```
+
+    ```bash
     git add . 
     git commit -m "Requirements.txt and Procfile added"
     git push
     ```
 
 1. The ALLOWED_HOSTS variable in settings.py should be amended to contain the heroku app's url. For example:
-    ```
+
+    ```py
     ALLOWED_HOSTS = ['drumcondra-craftshop.herokuapp.com', 'localhost']
     ```
+
 1. Disable collect static so that Heroku doesn't try to collect static files when you deploy by typing the following command in the terminal
-    ```
+
+    ```bash
     heroku config:set DISABLE_COLLECTSTATIC=1
     ```
+
 1. In Heroku select **Deploy** in the main menu ribbon and in the **Deployment Method** select **GitHub**.
 1. Search for the GitHub repository name to link Heroku to the correct repository and **Enable Automatic Deployments**.
 1. Click **Deploy Branch** for Heroku to commence building the app. The build status can be viewed in the **Activity** ribbon item.
@@ -494,23 +518,28 @@ This set up will allow your site to use Postgres in the Heroku production deploy
 
 1. **Static and Media Files** for the project should be stored on **Amazon Web Services (AWS) S3 Bucket Service**. A full description of this can be found at [Amazon S3 Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html).
 1. The following settings should be added to the Heroku app's Config Vars for the AWS S3 storage to function for the project.
-    ```
+
+    ```py
     AWS_ACCESS_KEY_ID = "Your AWS access key ID"
     AWS_SECRET_ACCESS_KEY = "Your AWS secret access key"
     AWS_STORAGE_BUCKET_NAME = "Your AWS bucket name"
     USE_AWS = True
     ```
+
 1. The following steps will allow user verification and confirmation emails to be set up using Gmail. (Alternative email service providers are possible also but the setup procedure may differ.)
 1. Follow Google's procedures and set up a new email account for the project.
 1. In the security settings, scroll down to signing in and ensure 2-step verification is enabled.
 1. In the App passwords option menu, select mail and under device type select other and give a meaningful name, e.g. 'Django'.
 1. Copy the app password and add the following Config Vars in Heroku.
-    ```
+
+    ```py
         EMAIL_HOST_PASSWORD = "Your email host password"
         EMAIL_HOST_USER = "Your email host username"
     ```
+
 1. Go to your settings.py in drumcondra_craftshop directory and add the following:
-    ```
+
+    ```py
         if 'DEVELOPMENT' in os.environ:
             EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
             DEFAULT_FROM_EMAIL = 'drumcondracraftshop@gmail.com'
@@ -523,22 +552,23 @@ This set up will allow your site to use Postgres in the Heroku production deploy
             EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
             DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
     ```
-1. Production deployment should now be complete and updates to the GitHub repository automatically trigger Heroku rebuilds.
 
+1. Production deployment should now be complete and updates to the GitHub repository automatically trigger Heroku rebuilds.
 
 ###### [Back to Top](#contents)
 
 ## Credits <a name="credit"></a>
 
 ---
+
 ### Photo Credits
 
-* Main home page [photo](https://unsplash.com/photos/KT4dOfvtZSg) by (Gregory Dalleau)[https://unsplash.com/@gregda] from [Unsplash](https://unsplash.com/).
-* Photograph of [potter](https://unsplash.com/photos/5z6a2OlqhrY) by (Iraj Beheshti)[https://unsplash.com/@setarehshab] from [Unsplash](https://unsplash.com/).
+* Main home page [photo](https://unsplash.com/photos/KT4dOfvtZSg) by [Gregory Dalleau](https://unsplash.com/@gregda) from [Unsplash](https://unsplash.com/).
+* Photograph of [potter](https://unsplash.com/photos/5z6a2OlqhrY) by [Iraj Beheshti](https://unsplash.com/@setarehshab) from [Unsplash](https://unsplash.com/).
 
 ### Special Thanks
 
-* My Code Institute mentor, [Simen Daehlin](https://github.com/Eventyret), for a lot of great advice and direction along the way. His time, effort and experience made a huge difference to the code quality, readability and end result. It would be hard to overstate his input here. 
+* My Code Institute mentor, [Simen Daehlin](https://github.com/Eventyret), for a lot of great advice and direction along the way. His time, effort and experience made a huge difference to the code quality, readability and end result. It would be hard to overstate his input here.
 * [Chris Z](https://github.com/ckz8780) whose excellent Boutique Ado project walk-through was used as the basis for the structural code in this project.
 * [Sean_CI](https://github.com/nazarja) for helping me fix a database error that stumped me for over two weeks.
 * Last and most certainly not least, I owe a huge debt to my patient wife, kids and dogs who have tolerated my untold hours on evenings, nights and weekends, squirrelled away on front of a screen while I've been doing this project. There is a lot of time to be made up for.
