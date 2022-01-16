@@ -376,13 +376,165 @@ This project runs locally using the following steps in Gitpod:
     ```
     Please refer to Stripe's documentation to get the exact details of how to ascertain the three required data points above that need to be manually inserted.
 
-    An alternative option to using an env.py file in GitPod is to use GitPod's own [Variables](https://gitpod.io/variables) to store your project specific environment variables in a secure and convenient manner. 
+    An alternative option to using an env.py file in GitPod is to use GitPod's own [Variables](https://gitpod.io/variables) to store your project specific environment variables in a secure and convenient manner.
 
+1. Migrate the database models with the following commands.
+    ```
+    python3 manage.py makemigrations --dry-run
+    python3 manage.py makemigrations
+    python3 manage.py migrate --planned
+    python3 manage.py migrate
+    ```
+1. Create a superuser account for database access with the following command.
+    ```
+    python3 manage.py createsuperuser
+    ```
+1. The application can be started with the following command.
+    ```
+    python manage.py runserver
+    ```
+    The local application's webserver address will be displayed in the terminal and there is usually a dialog box to open in a new browser window.
+1. To access the site administration page, add '/admin' to the application's url and login in with the superuser credentials created above.
 
 ### Remote Deployment <a name="remote-deployment"></a>
 
 The site has been deployed and tested remotely using Heroku and AWS S3 services.
 Heroku Site is available on [drumcondra-craftshop-heroku-app](https://drumcondra-craftshop.herokuapp.com/).
+
+The remote deployment is setup as follows:
+1. A Heroku account is required for this application. Create a new account if you do not already have one, create a new app and choose the most appropriate region.
+1. In order to run the database end of the application the Heroku Postgres Add-on needs to be included. This can be found under Add-Ons and select the 'Hobby Dev - Free' plan and click 'Submit order form' to create a new database and attach it to the app.
+1. In the Heroku main settings, scroll to the Config Vars and click Reveal Config Vars. A set of variables, similar to the env.py file in local deployment, need to be setup to hold sensitive or project specific datapoints that cannot be hard-coded into the application's software.
+    ```
+    AWS_ACCESS_KEY_ID = "Your AWS access key ID"
+    AWS_SECRET_ACCESS_KEY = "Your AWS secret access key"
+    AWS_STORAGE_BUCKET_NAME = "Your AWS bucket name"
+    USE_AWS = True
+    
+    DATABASE_URL = "This is the URI for your Heroku Postgres Database. (Should be automatically populated by Heroku at DB creation.)"
+
+    SECRET_KEY = "SECRET_KEY"
+
+    STRIPE_PUBLIC_KEY = "Your Stripe public key"
+    STRIPE_SECRET_KEY = "Your Stripe secret key"
+    STRIPE_WH_SECRET = "Your Stripe webhook secret key"
+
+    DEFAULT_FROM_EMAIL = "DEFAULT_FROM_EMAIL"  **testhigh delete**
+    EMAIL_HOST = "smtp.gmail.com"  **testhigh delete**
+    EMAIL_HOST_PASSWORD = "Your email host password"
+    EMAIL_HOST_USER = "Your email host username"
+    EMAIL_PORT = 587  **testhigh delete**
+    EMAIL_USE_TLS = True   **testhigh delete**
+    ```
+1. From this screen in Heroku, take note of the DATABASE_URL setting and navigate to settings.py in Gitpod in the Drumcondra_Craftshop folder.
+    Comment out the default database configuration and add the following code with the previously noted DATABASE_URL setting inserted:
+    ```
+    DATABASES = {
+        'default': dj_database_url.parse('postgres://.....'))
+    }
+    ```
+1. Migrate again with the following commands in Gitpod.
+    ```
+    heroku login -i
+    (Enter heroku login credential for Heroku site.)
+    heroku run python3 manage.py makemigrations --dry-run
+    heroku run python3 manage.py makemigrations
+    heroku run python3 manage.py migrate --planned
+    heroku run python3 manage.py migrate
+    ```
+
+1. Still in the Gitpod Terminal, enter the following command to create a new Heroku Postgres superuser account.
+    ```
+    heroku run python3 manage.py createsuperuser
+    ```
+1. Load data from the development database into the production databases with the following commands.
+
+    ```
+    python3 manage.py loaddata <name of file containing the data *>
+    ``` 
+    * products_datadump.json
+
+1. After migrations are complete, change database configurations in settings.py to:
+    ```
+    if 'DEVELOPMENT' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+    else:
+        DATABASES = {
+            'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
+```
+This set up will allow your site to use Postgres in the Heroku production deployment and sqlite3 in Gitpod development environment.
+
+
+1. Make sure you have your requirements.txt file and your Procfile. In case you don't, follow the below steps:
+    Requirements:
+    ```
+    pip3 freeze --local > requirements.txt
+    ```
+1. The Procfile should contain the following line:
+    ```
+    web: gunicorn drumcondra_craftshop.wsgi:application
+
+    ```
+
+1. Add your files and commit them to GITHUB by running the following commands:
+    ```
+    git add . 
+    git commit -m "Your commit message"
+    git push
+    ```
+
+1. Add your Heroku app URL to ALLOWED_HOSTS in your settings.py file
+1. Disable collect static so that Heroku doesn't try to collect static files when you deploy by typing the following command in the terminal
+    ```
+    heroku config:set DISABLE_COLLECTSTATIC=1
+    ```
+1. Go back to HEROKU and click "Deploy" in the navigation. 
+1. Scroll down to Deployment method and Select Github. 
+1. Look for your repository and click connect. 
+1. Under automatic deploys, click 'Enable automatic deploys'
+
+1. Just beneath, click "Deploy branch". Heroku will now start building the app. When the build is complete, click "view app" to open it.
+1. In order to commit your changes to the branch, use git push to push your changes. 
+
+
+1. Store your static files and media files on AWS. You can find more information about this on [Amazon S3 Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html).
+    If you would like to follow a tutorial instead, visit [this tutorial on Youtube from Amazon Web Services](https://youtube.com/watch?v=e6w9LwZJFIA)
+
+1. Set up email service to send confirmation email and user verification email to the users. You can do this by following the next steps (Gmail only)
+
+(Be aware that this migth be different for other providers or the process might have changed over time)
+
+* Go to your email account and go to your account settings
+* Under Security, scroll down to Signing in to Google and make sure 2 step verification is turned on
+* Under the same heading (Signing in to Google) you will see the 'App passwords' option.
+* Click on the option, select mail for the app and under device type select other and fill in 'Django'
+* You will now get a password which you should copy and set it as a config variable in Heroku:
+
+```
+    EMAIL_HOST_PASS = 'Password you just copied'
+    EMAIL_HOST_USER = 'Your gmail account
+```
+* Go to your settings.py in casa_pedra_nobre directory and add the following:
+
+```
+    if "DEVELOPMENT" in os.environ:
+        EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+        DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
+    else:
+        EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+        EMAIL_USE_TLS = True
+        EMAIL_PORT = 587
+        EMAIL_HOST = 'smtp.gmail.com'
+        EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+        EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+        DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
+```
 
 
 ###### [Back to Top](#contents)
@@ -390,6 +542,7 @@ Heroku Site is available on [drumcondra-craftshop-heroku-app](https://drumcondra
 ## Credits <a name="credit"></a>
 
 ---
+### Photo Credits
 
 * Main home page [photo](https://unsplash.com/photos/KT4dOfvtZSg) by (Gregory Dalleau)[https://unsplash.com/@gregda] from [Unsplash](https://unsplash.com/).
 * Photograph of [potter](https://unsplash.com/photos/5z6a2OlqhrY) by (Iraj Beheshti)[https://unsplash.com/@setarehshab] from [Unsplash](https://unsplash.com/).
