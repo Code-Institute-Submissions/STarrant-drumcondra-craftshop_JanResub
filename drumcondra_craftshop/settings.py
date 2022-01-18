@@ -44,11 +44,11 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    # home app - Dromcondra Craftshop Home App
+    # home app - Drumcondra Craftshop Home App
     'home',
-    # products app - Dromcondra Craftshop Products App
+    # products app - Drumcondra Craftshop Products App
     'products',
-    # shopping basket app - Dromcondra Craftshop Basket App
+    # shopping basket app - Drumcondra Craftshop Basket App
     'basket',
     # storages app
     'storages',

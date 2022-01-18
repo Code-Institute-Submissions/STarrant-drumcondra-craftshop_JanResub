@@ -1,4 +1,4 @@
-# Dromcondra Craftshop - Online Store
+# Drumcondra Craftshop - Online Store
 
 * Supporting your local artisans.
 
