@@ -27,6 +27,7 @@ let style = {
 };
 let card = elements.create('card', {style: style});
 card.mount('#card-element');
+console.log("Stripe Elements - Mount Card"); // testhigh
 
 // Handle realtime validation errors on the card element
 card.addEventListener('change', function (event) {
@@ -111,10 +112,12 @@ form.addEventListener('submit', function(ev) {
         } else {
             if (result.paymentIntent.status === 'succeeded') {
                 form.submit();
+                console.log("Stripe Elements - Succeeded Function");  // testhigh
             }
         }
     });
 }).fail(function () {
     // Django error message to be displayed to user on page reload.
     location.reload();
+    console.log("Stripe Elements - Fail Function");  // testhigh
 });
