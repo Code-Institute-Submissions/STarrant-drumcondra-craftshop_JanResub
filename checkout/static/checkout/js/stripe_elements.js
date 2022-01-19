@@ -98,31 +98,29 @@ form.addEventListener('submit', function(ev) {
                     country: $.trim(form.address_country.value),
                     postal_code: $.trim(form.address_postcode.value),
                 }
-            
+            },
+        }).then(function(result) {
+            if (result.error) {
+                let errorDiv = document.getElementById('card-errors');
+                let html = `
+                    <span class="icon" role="alert">
+                        <i class="bi bi-x"></i>
+                    </span>
+                    <span>${result.error.message}</span>`;
+                $(errorDiv).html(html);
+                $('#payment-form').fadeToggle(100);
+                $('#loading-overlay').fadeToggle(100);
+                card.update({ 'disabled': false});
+                $('#submit-button').attr('disabled', false);
+            } else {
+                if (result.paymentIntent.status === 'succeeded') {
+                    form.submit();
+                    console.log("Stripe Elements - Succeeded Function");  // testhigh
+                }
             }
         });
-        
-    }).then(function(result) {
-        if (result.error) {
-            let errorDiv = document.getElementById('card-errors');
-            let html = `
-                <span class="icon" role="alert">
-                    <i class="bi bi-x"></i>
-                </span>
-                <span>${result.error.message}</span>`;
-            $(errorDiv).html(html);
-            $('#payment-form').fadeToggle(100);
-            $('#loading-overlay').fadeToggle(100);
-            card.update({ 'disabled': false});
-            $('#submit-button').attr('disabled', false);
-        } else {
-            if (result.paymentIntent.status === 'succeeded') {
-                form.submit();
-                console.log("Stripe Elements - Succeeded Function");  // testhigh
-            }
-        }
-    });
-}).fail(function () {
-    // Django error message to be displayed to user on page reload.
-    location.reload();
+    }).fail(function () {
+        // Django error message to be displayed to user on page reload.
+        location.reload();
+    })
 });
