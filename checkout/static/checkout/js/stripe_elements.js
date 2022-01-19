@@ -6,9 +6,13 @@
 */
 
 let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+console.log("stripe public key:", stripePublicKey)  // testhigh
 let clientSecret = $('#id_client_secret').text().slice(1, -1);
+console.log("#id client secret :", clientSecret)  // testhigh
 let stripe = Stripe(stripePublicKey);
+console.log("stripe:", stripe)  // testhigh
 let elements = stripe.elements();
+console.log("elements:", elements)  // testhigh
 
 let style = {
     base: {
@@ -28,7 +32,7 @@ let style = {
 let card = elements.create('card', {style: style});
 card.mount('#card-element');
 console.log("Stripe Elements - Mount Card"); // testhigh
-
+console.log(card); // testhigh
 // Handle realtime validation errors on the card element
 card.addEventListener('change', function (event) {
     let errorDiv = document.getElementById('card-errors');
@@ -64,6 +68,7 @@ form.addEventListener('submit', function(ev) {
         'client_secret': clientSecret,
         'save_info': saveInfo,
     };
+    console.log(postData); // testhigh
 
     let url = '/checkout/cache_checkout_data/';
 
@@ -93,9 +98,10 @@ form.addEventListener('submit', function(ev) {
                     country: $.trim(form.address_country.value),
                     postal_code: $.trim(form.address_postcode.value),
                 }
+            
             }
-        })
-    
+        });
+        
     }).then(function(result) {
         if (result.error) {
             let errorDiv = document.getElementById('card-errors');
@@ -119,5 +125,4 @@ form.addEventListener('submit', function(ev) {
 }).fail(function () {
     // Django error message to be displayed to user on page reload.
     location.reload();
-    console.log("Stripe Elements - Fail Function");  // testhigh
 });
