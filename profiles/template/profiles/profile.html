@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
+{% endblock extra_css %}
+
+{% block page_header %}
+    <div class="div header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock page_header%}
+
+{% block content %}
+    <div class="dc-background-overlay"></div>
+    <div class="container">
+        <!-- My Profile Header -->
+        <div class="row">
+            <div class="col-12">
+                <h2 class="dc-logo-font">My Profile</h2>
+                <!-- HR Separator -->
+                <div class="hr-heavy mb-5"></div>
+            </div>
+        </div>
+        <!-- End My Profile Row -->
+    </div>
+    <!-- End Container -->
+{% endblock content %}
