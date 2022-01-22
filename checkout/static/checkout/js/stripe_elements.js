@@ -6,13 +6,9 @@
 */
 
 let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
-console.log("stripe public key:", stripePublicKey)  // testhigh
 let clientSecret = $('#id_client_secret').text().slice(1, -1);
-console.log("#id client secret :", clientSecret)  // testhigh
 let stripe = Stripe(stripePublicKey);
-console.log("stripe:", stripe)  // testhigh
 let elements = stripe.elements();
-console.log("elements:", elements)  // testhigh
 
 let style = {
     base: {
@@ -31,8 +27,6 @@ let style = {
 };
 let card = elements.create('card', {style: style});
 card.mount('#card-element');
-console.log("Stripe Elements - Mount Card"); // testhigh
-console.log(card); // testhigh
 // Handle realtime validation errors on the card element
 card.addEventListener('change', function (event) {
     let errorDiv = document.getElementById('card-errors');
@@ -115,7 +109,6 @@ form.addEventListener('submit', function(ev) {
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
                     form.submit();
-                    console.log("Stripe Elements - Succeeded Function");  // testhigh
                 }
             }
         });
