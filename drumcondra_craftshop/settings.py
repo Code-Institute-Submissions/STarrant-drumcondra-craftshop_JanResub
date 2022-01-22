@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'products',
     # shopping basket app - Drumcondra Craftshop Basket App
     'basket',
+    # profiles app - Drumcondra Craftshop App
+    'profiles',
     # storages app
     'storages',
     # checkout app
