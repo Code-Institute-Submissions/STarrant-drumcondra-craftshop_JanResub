@@ -8,6 +8,7 @@ from django.conf import settings
 from django_countries.fields import CountryField
 
 from products.models import Product, Item
+from profiles.models import UserProfile
 
 
 class Order(models.Model):
@@ -15,22 +16,30 @@ class Order(models.Model):
     Model class for database object for holding Stripe order details.
     '''
     order_no = models.CharField(max_length=32, null=False, editable=False)
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                     null=True, blank=True,
+                                     related_name='orders')
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_no = models.CharField(max_length=20, null=False, blank=False)
     address_street_1 = models.CharField(max_length=80, null=False, blank=False)
     address_street_2 = models.CharField(max_length=80, null=True, blank=True)
-    address_town_city = models.CharField(max_length=40, null=False, blank=False)    
+    address_town_city = models.CharField(max_length=40, null=False,
+                                         blank=False)
     address_postcode = models.CharField(max_length=20, null=True, blank=True)
     address_country = CountryField(null=False, blank=False)
     order_date = models.DateTimeField(auto_now_add=True)
     order_weight_g = models.IntegerField(null=False, default=0)
     order_items_ship_in_packet = models.BooleanField(default=False)
-    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
-    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
-    grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2,
+                                        null=False, default=0)
+    order_total = models.DecimalField(max_digits=10, decimal_places=2,
+                                      null=False, default=0)
+    grand_total = models.DecimalField(max_digits=10, decimal_places=2,
+                                      null=False, default=0)
     original_basket = models.TextField(null=False, blank=False, default='')
-    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False,
+                                  blank=False, default='')
 
     def _generate_order_no(self):
         """
