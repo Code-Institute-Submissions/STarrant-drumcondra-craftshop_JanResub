@@ -1,13 +1,13 @@
 .fieldset-label {
     color: #293132;
-    position: relative; /* testhigh assign real values in here*/
+    position: relative;
     right: .5rem;
 }
 
 #payment-form, .form-control,
 #card-element {
     color: #293132;
-    border: 1px solid #000;  /* testhigh assign real values in here*/
+    border: 1px solid #000;
 }
 
 .StripeElement,

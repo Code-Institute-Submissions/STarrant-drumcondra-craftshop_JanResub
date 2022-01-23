@@ -53,7 +53,6 @@ form.addEventListener('submit', function(ev) {
     $('#payment-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
 
-    // let saveInfo = Boolean($('#id-save-info').attr('checked')); testhigh
     let saveInfo = Boolean($('#id-save-info:checked').val());
     // From using {% csrf_token %} in the form
     let csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
@@ -62,7 +61,6 @@ form.addEventListener('submit', function(ev) {
         'client_secret': clientSecret,
         'save_info': saveInfo,
     };
-    console.log(postData); // testhigh
 
     let url = '/checkout/cache_checkout_data/';
 

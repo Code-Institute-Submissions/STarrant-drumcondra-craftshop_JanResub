@@ -62,9 +62,8 @@ class Order(models.Model):
             'lineitem_weight_g'))['lineitem_weight_g__sum'] or 0
         # Source for use of aggregate(BoolAnd)
         # https://django.readthedocs.io/en/stable/ref/contrib/postgres/aggregates.html
-        self.order_items_ship_in_packet = False # testhigh
-        # self.order_items_ship_in_packet = self.lineitems.aggregate(BoolAnd('lineitem_ship_in_packet'))['lineitem_ship_in_packet'] or False
-        self.delivery_cost = 0  # calculation for delivery cost to be added testhigh
+        self.order_items_ship_in_packet = False
+        self.delivery_cost = 0  # calculation for delivery cost to be added.
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
 
