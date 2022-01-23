@@ -88,6 +88,7 @@
 
 * As a **Site-Owner**, I want to be able to **create new products to sell in the shop** so that I can **easily expland my range of products**.
 * As a **Site-Owner**, I want to be able to **create new creator/artisans for the store** so that I can **easily reduce or add extra items as needed**.
+* As a **Site-Owner**, I want to be able to **delete a product in the store** so that I can **remove a product permanently from the database**.
 
 ### User Requirements and Expectations <a name="user-requirements"></a>
 
@@ -207,32 +208,32 @@ Insert database structure for this project is as follows:
 
 #### HTML Test Fixes
 
-* Site testing incomplete.
+* HTML Linters are generating large amounts of errors due to huge number of templating tags.
+* HTML testing was carried out throughout development using the GitPod ErrorLens addin.
+* No significant HTML errors were encountered during development. Errors are noted in commit messages.
 
 ### CSS Test
 
-* Site testing incomplete.
+* CSS testing was carried out with [W3 Schools CSS Validator](https://jigsaw.w3.org/css-validator/validator)
 
 #### CSS Test Errors
 
-* Site testing incomplete.
+* No errors.
 
 #### CSS Test Warnings
 
-``` css
-* Site testing incomplete. css test code errors to be entered here when completed.
-
-```
+* Warnings relating to vendor extensions, and background/border color similarity were ignored.
 
 #### CSS Test Fixes
 
-* Site testing incomplete.
+* None required.
 
 ### Responsiveness
 
 * The site has been implemented using Bootstrap throughout and built with a mobile first philosophy.
 * Responsiveness is quite good going from mobile to larger screens and navbar collapses predictably.
-* Site testing incomplete.
+* Responsive testing was done using Google Chrome's developer tools and tested for a range of screen sizes.
+* Responsiveness could be improved on some devices.
 
 ### Design
 
@@ -240,7 +241,7 @@ Insert database structure for this project is as follows:
 
 ### Contact form
 
-* Site testing incomplete and contact form was not created.
+* Contact form was not created as part of this project.
 
 ### User Story Tests
 
@@ -337,7 +338,9 @@ Many bugs were encountered during the development of the project - all admittedl
 
 ### Testing Bugs
 
-* Site testing incomplete.
+* Many testing bugs were encountered in relation to views and database requests. There are documented in the appropriate commit messages.
+* A major bug was encountered during testing with Stripe Webhooks and the JS stripe_elements file. The error was caused by an incorrectly placed curly brace which caused part of the program to not execute. Many hours were lost on this issue before contacting Tutor Support - who are absolutely superb.
+* Numberous bugs were encountered during deployment testing of the Heroku site and issues with getting the DBs to migrate correctly. Sean from Tutor support helped me out twice on this issue and I can't praise his help enough.
 
 ###### [Back to Top](#contents)
 
@@ -577,12 +580,19 @@ This set up will allow your site to use Postgres in the Heroku production deploy
 
 * Main home page [photo](https://unsplash.com/photos/KT4dOfvtZSg) by [Gregory Dalleau](https://unsplash.com/@gregda) from [Unsplash](https://unsplash.com/).
 * Photograph of [potter](https://unsplash.com/photos/5z6a2OlqhrY) by [Iraj Beheshti](https://unsplash.com/@setarehshab) from [Unsplash](https://unsplash.com/).
+* Photograph of [pottery cup](https://unsplash.com/photos/e3B0j05Ic20) by [Clayton Robbins](https://unsplash.com/@claytonrobbins) from [Unsplash](https://unsplash.com/).
+* Photograph of [pottery fox](https://unsplash.com/photos/bewUyYbPzFY) by [Clayton Robbins](https://unsplash.com/@claytonrobbins) from [Unsplash](https://unsplash.com/).
+* Photograph of [pottery set](https://unsplash.com/photos/yPYNhYr7Xrs) by [Clayton Robbins](https://unsplash.com/@claytonrobbins) from [Unsplash](https://unsplash.com/).
+* Photograph of [pottery rabbit](https://unsplash.com/photos/6z9saDXnrMI) by [Clayton Robbins](https://unsplash.com/@claytonrobbins) from [Unsplash](https://unsplash.com/).
+
 
 ### Special Thanks
 
-* My Code Institute mentor, [Simen Daehlin](https://github.com/Eventyret), for a lot of great advice and direction along the way. His time, effort and experience made a huge difference to the code quality, readability and end result. It would be hard to overstate his input here.
+* My Code Institute mentor, [Simen Daehlin](https://github.com/Eventyret), for a lot of great advice and direction along the way. His time, effort and experience made a huge difference to the code quality, readability and end result.
 * [Chris Z](https://github.com/ckz8780) whose excellent Boutique Ado project walk-through was used as the basis for the structural code in this project.
-* [Sean_CI](https://github.com/nazarja) for helping me fix a database error that stumped me for over two weeks.
-* Last and most certainly not least, I owe a huge debt to my patient wife, kids and dogs who have tolerated my untold hours on evenings, nights and weekends, squirrelled away on front of a screen while I've been doing this project. There is a lot of time to be made up for.
+* [Sean_CI](https://github.com/nazarja) for helping me fix a database error that stumped me for over two weeks. He also helped me on the morning of submission with another DB error. I am unbelieveably grateful for his help in sorting this out.
+* Also from tutor support Sheryl and James were hugely helpful in finding a JS bug in my stripe_elements.js file. I would still be looking at this code were it not for their help.
+* I owe a big thanks to the CodeInstitute community and Student Care for their support over the past year.
+* Last and most certainly not least, I owe a huge debt to my (very) patient wife, kids and dogs who have tolerated my untold hours on evenings, nights and weekends, squirrelled away on front of a screen while I've been doing this project and the proceeding three. There is a lot of time to be made up for.
 
 ###### [Back to Top](#contents)
