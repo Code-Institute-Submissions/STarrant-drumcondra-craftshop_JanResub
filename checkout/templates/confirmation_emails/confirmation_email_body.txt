@@ -1,0 +1,22 @@
+Hi {{ order.full_name }}!
+
+Thank you so much for your custom. Details of your order are:
+
+Order Number: {{ order.order_no }}
+Order Date: {{ order.order_date }}
+
+Order Total: €{{ order.order_total }}
+Delivery: €{{ order.delivery_cost }}
+Grand Total: €{{ order.grand_total }}
+
+Shipping to: {{ order.address_street_1 }}, {{ order.address_town_city }}, {{ order.address_country }}.
+
+Your contact phone number, {{ order.phone_no }}, will be on the package to help the delivery driver get to you.
+
+If you have any questions, feel free to contact us at {{ contact_email }}.
+
+Thank you for your order!
+
+Kind regards,
+
+The Team at Drumcondra Craftshop
