@@ -16,7 +16,6 @@ import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-# BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -60,7 +59,6 @@ INSTALLED_APPS = [
     # Other Apps - crispy forms
     'crispy_forms',
     # Other Apps - crispy forms - bootstrap 5 Template Pack
-    # 'crispy_bootstrap5', testhigh
 ]
 
 MIDDLEWARE = [
