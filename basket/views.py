@@ -24,7 +24,8 @@ def add_to_basket(request, item_id):
         basket[item_id] += quantity
     else:
         basket[item_id] = quantity
-        messages.success(request, f'Added {product.item_id.name} to your basket')
+        messages.success(request,
+                         f'Added {product.item_id.name} to your basket')
 
     request.session['basket'] = basket
     return redirect(redirect_url)
@@ -51,9 +52,11 @@ def remove_from_basket(request, item_id):
     try:
         basket = request.session.get('basket', {})
         basket.pop(item_id)
-
+        messages.success(request, 'Removed item from your basket.')
         request.session['basket'] = basket
         return HttpResponse(status=200)
 
     except Exception as e:
+        messages.error(request, f'Failed to remove item from your basket.\
+                        | ERROR: {e}')
         return HttpResponse(status=500)
