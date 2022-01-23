@@ -251,58 +251,70 @@ Insert database structure for this project is as follows:
 
 ##### Viewing and Navigation
 
-* Test-1.   As a **Shopper**, I want to be able to **view the site's products** so that I can **chose some to buy**. Test incomplete - FAIL.
+* Test-1.   As a **Shopper**, I want to be able to **view the site's products** so that I can **chose some to buy**. Test **PASS**.
 ![DC-User-Test-1](wireframes/dc-user-test-1.png)
-* Test-2.   As a **Shopper**, I want to be able to **view an individual product's detailed information** so that I can **see the detailed description, manufacturer or creator, price and rating.**. Test incomplete - FAIL.
+* Test-2.   As a **Shopper**, I want to be able to **view an individual product's detailed information** so that I can **see the detailed description, manufacturer or creator, price and rating.**.  Test **PASS**.
 ![DC-User-Test-2](wireframes/dc-user-test-2.png)
-* Test-3.   As a **Shopper**, I want to be able to **see the number of items and value of my shopping basket** so that I can **be aware of how much I've committed to spend**. Test incomplete - FAIL.
+* Test-3.   As a **Shopper**, I want to be able to **see the number of items and value of my shopping basket** so that I can **be aware of how much I've committed to spend**.  Test **PASS**.
 ![DC-User-Test-3](wireframes/dc-user-test-3.png)
 
 ##### Registration and User Accounts
 
-* Test-4.   As a **Site User**, I want to be able to **easily sign up for an account** so that I can **have an account and view my profile**. Test incomplete - FAIL.
+* Test-4.   As a **Site User**, I want to be able to **easily sign up for an account** so that I can **have an account and view my profile**.  Test **PASS**.
 ![DC-User-Test-4](wireframes/dc-user-test-4.png)
-* Test-5.   As a **Site User**, I want to be able to **log in and logout** so that I can **access my personal information**. Test incomplete - FAIL.
-![DC-User-Test-5](wireframes/dc-user-test-5.png)
-* Test-6.   As a **Site User**, I want to be able to **recover my password** so that I can **regain access to my account if I forget my stored password**. Test incomplete - FAIL.
-![DC-User-Test-6](wireframes/dc-user-test-6.png)
-* Test-7.   As a **Site User**, I want to be able to **receive password change confirmation by email** so that I can **know my password has been changed - by me or someone else**. Test incomplete - FAIL.
+* Test-5.   As a **Site User**, I want to be able to **log in and logout** so that I can **access my personal information**.  Test **PASS**.
+![DC-User-Test-5a](wireframes/dc-user-test-5a.png)
+![DC-User-Test-5b](wireframes/dc-user-test-5b.png)
+* Test-6.   As a **Site User**, I want to be able to **recover my password** so that I can **regain access to my account if I forget my stored password**.  Test **PASS**.
+![DC-User-Test-6a](wireframes/dc-user-test-6a.png)
+![DC-User-Test-6b](wireframes/dc-user-test-6b.png)
+![DC-User-Test-6c](wireframes/dc-user-test-6c.png)
+![DC-User-Test-6d](wireframes/dc-user-test-6d.png)
+* Test-7.   As a **Site User**, I want to be able to **receive password change confirmation by email** so that I can **know my password has been changed - by me or someone else**.  Test **PASS**.
 ![DC-User-Test-7](wireframes/dc-user-test-7.png)
-* Test-8.   As a **Site User**, I want to be able to **have a personal profile** so that I can **see order history, confirmations and personal information**. Test incomplete - FAIL.
+* Test-8.   As a **Site User**, I want to be able to **have a personal profile** so that I can **see order history, confirmations and personal information**.  Test **PASS**.
 ![DC-User-Test-8](wireframes/dc-user-test-8.png)
 
 ##### Sorting and Searching
 
-* Test-9.   As a **Shopper**, I want to be able to **see a list of available products** so that I can **I can chose some to buy**. Test incomplete - FAIL.
+* Test-9.   As a **Shopper**, I want to be able to **see a list of available products** so that I can **I can chose some to buy**.  Test **PASS**.
 ![DC-User-Test-9](wireframes/dc-user-test-9.png)
-* Test-10.   As a **Shopper**, I want to be able to **chose a product category** so that I can **see a sub set of products of a particular type**. Test incomplete - FAIL.
+* Test-10.   As a **Shopper**, I want to be able to **chose a product category** so that I can **see a sub set of products of a particular type**.  Test **PASS**.
 ![DC-User-Test-10](wireframes/dc-user-test-10.png)
-* Test-11.   As a **Shopper**, I want to be able to **sort by price or rating** so that I can **so that I can see items that are well reviewed or see ones in a particular price range**. Test incomplete - FAIL.
-![DC-User-Test-11](wireframes/dc-user-test-11.png)
-* Test-12.   As a **Shopper**, I want to be able to **search by product name** so that I can **find a particular item I'm looking for**. Test incomplete - FAIL.
+* Test-11.   As a **Shopper**, I want to be able to **sort by price or rating** so that I can **so that I can see items that are well reviewed or see ones in a particular price range**.  Test **PASS**.
+![DC-User-Test-11a](wireframes/dc-user-test-11a.png)
+![DC-User-Test-11b](wireframes/dc-user-test-11b.png)
+* Test-12.   As a **Shopper**, I want to be able to **search by product name** so that I can **find a particular item I'm looking for**.  Test **PASS**.
 ![DC-User-Test-12](wireframes/dc-user-test-12.png)
-* Test-13.   As a **Shopper**, I want to be able to **see search results and number selected** so that I can **see what my search results are and know how narrow/wide my search criteria is**. Test incomplete - FAIL.
+* Test-13.   As a **Shopper**, I want to be able to **see search results and number selected** so that I can **see what my search results are and know how narrow/wide my search criteria is**. Test **Partial Pass** - number of products selected is not functioning correctly.
 ![DC-User-Test-13](wireframes/dc-user-test-13.png)
-* Test-14.   As a **Shopper**, I want to be able to **see results for particular creator** so that I can **see other items made by the same person**. Test incomplete - FAIL.
+* Test-14.   As a **Shopper**, I want to be able to **see results for particular creator** so that I can **see other items made by the same person**.  Test **PASS**.
 ![DC-User-Test-14](wireframes/dc-user-test-14.png)
 
 ##### Purchasing and Checkout
 
-* Test-15.   As a **Shopper**, I want to be able to **see a list of items in my shopping basket** so that I can **I know exactly what I am buying**. Test incomplete - FAIL.
+* Test-15.   As a **Shopper**, I want to be able to **see a list of items in my shopping basket** so that I can **I know exactly what I am buying**.  Test **PASS**.
 ![DC-User-Test-15](wireframes/dc-user-test-15.png)
-* Test-16.   As a **Shopper**, I want to be able to **adjust the quantity of items in my basket** so that I can **easily reduce or add extra items as needed**. Test incomplete - FAIL.
+* Test-16.   As a **Shopper**, I want to be able to **adjust the quantity of items in my basket** so that I can **easily reduce or add extra items as needed**.  Test **PASS**.
 ![DC-User-Test-16](wireframes/dc-user-test-16.png)
-* Test-17.   As a **Shopper**, I want to be able to **return to the main shopping area from the shopping basket screen** so that I can **continue shopping after having confirmed what's in my basket**. Test incomplete - FAIL.
+* Test-17.   As a **Shopper**, I want to be able to **return to the main shopping area from the shopping basket screen** so that I can **continue shopping after having confirmed what's in my basket**.  Test **PASS**.
 ![DC-User-Test-17](wireframes/dc-user-test-17.png)
-* Test-18.   As a **Shopper**, I want to be able to **buy items in my basket securely** so that I can **feel safe regarding my payment details**. Test incomplete - FAIL.
-![DC-User-Test-18](wireframes/dc-user-test-18.png)
+* Test-18.   As a **Shopper**, I want to be able to **buy items in my basket securely** so that I can **feel safe regarding my payment details**.  Test **PASS**.
+![DC-User-Test-18a](wireframes/dc-user-test-18a.png)
+![DC-User-Test-18b](wireframes/dc-user-test-18b.png)
 
 ##### Site Administration
 
-* Test-19.   As a **Site-Owner**, I want to be able to **create new products to sell in the shop** so that I can **easily expland my range of products**. Test incomplete - FAIL.
-![DC-User-Test-19](wireframes/dc-user-test-19.png)
-* Test-20.   As a **Site-Owner**, I want to be able to **create new creator/artisans for the store** so that I can **easily reduce or add extra items as needed**. Test incomplete - FAIL.
+* Test-19.   As a **Site-Owner**, I want to be able to **create new products to sell in the shop** so that I can **easily expland my range of products**.  Test **PASS**.
+![DC-User-Test-19a](wireframes/dc-user-test-19a.png)
+![DC-User-Test-19b](wireframes/dc-user-test-19b.png)
+![DC-User-Test-19c](wireframes/dc-user-test-19c.png)
+![DC-User-Test-19d](wireframes/dc-user-test-19d.png)
+![DC-User-Test-19e](wireframes/dc-user-test-19e.png)
+* Test-20.   As a **Site-Owner**, I want to be able to **create new creator/artisans for the store** so that I can **easily reduce or add extra items as needed**.  Test **PASS**.
 ![DC-User-Test-20](wireframes/dc-user-test-20.png)
+* Test-21.   As a **Site-Owner**, I want to be able to **delete a product in the store** so that I can **remove a product permanently from the database**.
+![DC-User-Test-21](wireframes/dc-user-test-21.png)
 
 </details>
 
