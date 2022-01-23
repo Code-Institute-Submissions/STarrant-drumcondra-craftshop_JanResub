@@ -18,6 +18,8 @@ from profiles.models import UserProfile
 
 # Create your views here.
 
+# Code Credit:  Chris Z. (https://github.com/ckz8780)
+# Boutique Ado Project used as the basis for code below.
 
 @require_POST
 def cache_checkout_data(request):

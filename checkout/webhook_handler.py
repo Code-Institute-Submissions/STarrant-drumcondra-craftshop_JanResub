@@ -10,6 +10,8 @@ from .models import Order, OrderLineItem
 from products.models import Product
 from profiles.models import UserProfile
 
+# Code Credit:  Chris Z. (https://github.com/ckz8780)
+# Boutique Ado Project used as the basis for code below.
 
 class StripeWH_Handler:
     """Handler class for Stripe Webhooks"""

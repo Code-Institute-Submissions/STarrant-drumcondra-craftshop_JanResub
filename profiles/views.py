@@ -6,6 +6,8 @@ from .forms import UserProfileForm
 
 from checkout.models import Order
 
+# Code Credit:  Chris Z. (https://github.com/ckz8780)
+# Boutique Ado Project used as the basis for code below.
 
 def profile(request):
     '''

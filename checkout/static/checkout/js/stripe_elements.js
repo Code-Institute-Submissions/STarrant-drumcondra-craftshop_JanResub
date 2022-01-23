@@ -5,6 +5,10 @@
     https://stripe.com/docs/stripe-js
 */
 
+/* Code Credit:  Chris Z. (https://github.com/ckz8780) */
+/* Boutique Ado Project */
+
+
 let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 let clientSecret = $('#id_client_secret').text().slice(1, -1);
 let stripe = Stripe(stripePublicKey);
