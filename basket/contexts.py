@@ -13,7 +13,7 @@ def basket_contents(request):
     item_count = 0
     unit_price = 0.00
     line_value = 0.00
-    delivery_cost = 50
+    delivery_cost = 10
     grand_total = 0
 
     basket = request.session.get('basket', {})
