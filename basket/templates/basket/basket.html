@@ -109,6 +109,15 @@
                                             </div>
                                         </form>
                                     </td>
+                                    <td>
+                                        <!-- Remove Item -->
+                                        <button class="remove-item btn btn-sm rounded-0"
+                                        data-item_id="{{ item.item_id }}" id="remove_{{ item.item_id }}">
+                                        <span>
+                                            <i class="bi bi-x-circle-fill text-danger"></i>
+                                        </span>
+                                        </button>
+                                    </td>
                                     <!-- Item Cost -->
                                     <td class="py-3">
                                         <p class="my-0">
