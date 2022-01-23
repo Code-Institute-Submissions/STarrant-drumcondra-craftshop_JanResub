@@ -316,33 +316,11 @@ nav a {
 	color: #c76b82; /* text-info */
 }
 
-
-/* Images and image titles */
-
-
-
-
-
-/* Contact Form */
-
-
-
-
-
-
-
-
 /* Footer */
 .dc-footer-bg-1 { background-color: #c76b82; }
 .dc-footer-bg-2 { background-color: #92374d; }
 .dc-footer-bg-3 { background-color: #5c2331; }
 .dc-footer-bg-4 { background-color: #37151e; }
-
-
-
-/*#footer-main-section {
-    background-color: #293132;
-}*/
 
 .dc-footer-heading,
 .dc-footer-icon {
@@ -382,7 +360,6 @@ nav a {
     letter-spacing: 2px;
 }
 
-
 /* Bootstrap Toasts */
 
 .message-container {
@@ -392,11 +369,11 @@ nav a {
     z-index: 999999;
 }
 
-.custom-toast {   /* testhigh - not used yet  */
+.custom-toast {
     overflow: visible;
 }
 
-.toast-capper {   /* testhigh - not used yet  */
+.toast-capper {
     height: 2px;
 }
 
@@ -450,23 +427,6 @@ nav a {
     color: #e3b5c1;
     text-decoration: none;
     transition: 0.3s;
-}
-
-/* Media Query */
-
-@media only screen and (min-width: 575.98px) {
-
-
-}
-
-@media only screen and (min-width: 767.98px) {
-
-
-}
-
-@media only screen and (min-width: 991.98px) {
-   
-
 }
 
 /* Code Credit:  Chris Z. (https://github.com/ckz8780) */
