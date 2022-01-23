@@ -31,7 +31,7 @@ def all_products(request):
                 return redirect(reverse('products'))
 
             # Search term in product name or description.
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(item_id__name__icontains=query) | Q(item_id__description__icontains=query)
             products = products.filter(queries)
 
         # CATEGORY SELECTION FUNCTIONALITY
@@ -95,7 +95,8 @@ def product_detail(request, product_id):
 def add_item(request):
     """ Add an item to the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Superuser authorisation required to perform this action.')
+        messages.error(request, 'Superuser authorisation\
+                       required to perform this action.')
         return redirect(reverse('products'))
     if request.method == 'POST':
         form = ItemForm(request.POST, request.FILES)
